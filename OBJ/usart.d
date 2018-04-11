@@ -31,5 +31,5 @@
 ..\obj\usart.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\usart.o: ..\SYSTEM\usart\usart.h
 ..\obj\usart.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
-..\obj\usart.o: ..\USER\data.h
+..\obj\usart.o: .\data\data.h
 ..\obj\usart.o: ..\SYSTEM\delay\delay.h

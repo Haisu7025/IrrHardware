@@ -1,9 +1,9 @@
-..\obj\data.o: data.c
-..\obj\data.o: stm32f10x.h
+..\obj\data.o: data\data.c
+..\obj\data.o: ..\USER\stm32f10x.h
 ..\obj\data.o: ..\CORE\core_cm3.h
 ..\obj\data.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
-..\obj\data.o: system_stm32f10x.h
-..\obj\data.o: stm32f10x_conf.h
+..\obj\data.o: ..\USER\system_stm32f10x.h
+..\obj\data.o: ..\USER\stm32f10x_conf.h
 ..\obj\data.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
 ..\obj\data.o: ..\USER\stm32f10x.h
 ..\obj\data.o: ..\STM32F10x_FWLib\inc\stm32f10x_bkp.h
@@ -30,6 +30,6 @@
 ..\obj\data.o: ..\STM32F10x_FWLib\inc\misc.h
 ..\obj\data.o: ..\SYSTEM\sys\sys.h
 ..\obj\data.o: ..\SYSTEM\delay\delay.h
-..\obj\data.o: data.h
-..\obj\data.o: PCF8591.h
-..\obj\data.o: iic.h
+..\obj\data.o: data\data.h
+..\obj\data.o: .\PCF8591\PCF8591.h
+..\obj\data.o: .\PCF8591\iic\iic.h

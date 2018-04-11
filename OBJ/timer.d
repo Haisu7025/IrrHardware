@@ -1,5 +1,5 @@
-..\obj\timer.o: timer.c
-..\obj\timer.o: timer.h
+..\obj\timer.o: timer\timer.c
+..\obj\timer.o: timer\timer.h
 ..\obj\timer.o: ..\SYSTEM\sys\sys.h
 ..\obj\timer.o: ..\USER\stm32f10x.h
 ..\obj\timer.o: ..\CORE\core_cm3.h
@@ -30,4 +30,4 @@
 ..\obj\timer.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\timer.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\timer.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\timer.o: data.h
+..\obj\timer.o: .\data\data.h

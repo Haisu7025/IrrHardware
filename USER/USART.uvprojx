@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;.\battery;.\data;.\EMV;.\PCF8591;.\PCF8591\iic;.\SIM;.\timer;.\verifier</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -424,54 +424,54 @@
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
             <File>
-              <FileName>PCF8591.c</FileName>
+              <FileName>GUA_ADC1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\PCF8591.c</FilePath>
-            </File>
-            <File>
-              <FileName>iic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\iic.c</FilePath>
-            </File>
-            <File>
-              <FileName>EMV.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\EMV.c</FilePath>
-            </File>
-            <File>
-              <FileName>data.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\data.c</FilePath>
-            </File>
-            <File>
-              <FileName>md5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\md5.c</FilePath>
-            </File>
-            <File>
-              <FileName>SIM.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\SIM.c</FilePath>
-            </File>
-            <File>
-              <FileName>timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>Verify_Helper.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Verify_Helper.c</FilePath>
+              <FilePath>.\battery\GUA_ADC1.c</FilePath>
             </File>
             <File>
               <FileName>GUA_Battery_Check.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\GUA_Battery_Check.c</FilePath>
+              <FilePath>.\battery\GUA_Battery_Check.c</FilePath>
             </File>
             <File>
-              <FileName>GUA_ADC1.c</FileName>
+              <FileName>data.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\GUA_ADC1.c</FilePath>
+              <FilePath>.\data\data.c</FilePath>
+            </File>
+            <File>
+              <FileName>EMV.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\EMV\EMV.c</FilePath>
+            </File>
+            <File>
+              <FileName>PCF8591.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PCF8591\PCF8591.c</FilePath>
+            </File>
+            <File>
+              <FileName>iic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PCF8591\iic\iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>SIM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SIM\SIM.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\timer\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\verifier\md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>Verify_Helper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\verifier\Verify_Helper.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -189,22 +189,6 @@ void system_init()
 	GUA_Battery_Check_Init();
 }
 
-void SIM_config()
-{
-	modify_cmnet();
-	delay_ms(5000);
-	heartbeat_report_control();
-	delay_ms(5000);
-	modify_heartbeat_time(17);
-	delay_ms(5000);
-	modify_SIM_server("\"183.172.82.218\"", 14, 2317);
-	delay_ms(5000);
-	save_modify();
-	delay_ms(5000);
-	module_restart();
-	delay_ms(5000);
-}
-
 int main(void)
 {
 	//variable established

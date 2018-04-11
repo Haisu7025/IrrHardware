@@ -1,5 +1,5 @@
-..\obj\sim.o: SIM.c
-..\obj\sim.o: SIM.h
+..\obj\sim.o: SIM\SIM.c
+..\obj\sim.o: SIM\SIM.h
 ..\obj\sim.o: ..\SYSTEM\sys\sys.h
 ..\obj\sim.o: ..\USER\stm32f10x.h
 ..\obj\sim.o: ..\CORE\core_cm3.h

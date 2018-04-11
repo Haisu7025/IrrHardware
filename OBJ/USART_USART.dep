@@ -1,5 +1,5 @@
 Dependencies for Project 'USART', Target 'USART': (DO NOT MODIFY !)
-F (.\main.c)(0x59D1F6E5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5ACCDC04)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -33,16 +33,16 @@ I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (..\SYSTEM\usart\usart.h)(0x597AAEBF)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (PCF8591.h)(0x5976119D)
-I (iic.h)(0x596B2975)
-I (data.h)(0x59D0A540)
-I (SIM.h)(0x597804B7)
-I (timer.h)(0x59940F3F)
-I (EMV.h)(0x59761320)
-I (Verify_Helper.h)(0x597611E5)
-I (md5.h)(0x59795BD0)
-I (GUA_Battery_Check.h)(0x59D0AE00)
-F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
+I (.\PCF8591\PCF8591.h)(0x5AC76AA1)
+I (.\PCF8591\iic\iic.h)(0x5AC76A72)
+I (.\data\data.h)(0x5AC76F40)
+I (.\SIM\SIM.h)(0x5AC77171)
+I (.\timer\timer.h)(0x5AC77960)
+I (.\EMV\EMV.h)(0x5ACCD558)
+I (.\verifier\Verify_Helper.h)(0x5AC772A2)
+I (.\verifier\md5.h)(0x5AC7712B)
+I (.\battery\GUA_Battery_Check.h)(0x5AC770FE)
+F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A426)
 I (stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -73,7 +73,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\system_stm32f10x.c)(0x4D99A426)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
+F (.\system_stm32f10x.c)(0x4D99A426)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\system_stm32f10x.o --omf_browse ..\obj\system_stm32f10x.crf --depend ..\obj\system_stm32f10x.d)
 I (stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -103,15 +103,13 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\PCF8591.c)(0x597A99F1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\pcf8591.o --omf_browse ..\obj\pcf8591.crf --depend ..\obj\pcf8591.d)
-I (PCF8591.h)(0x5976119D)
-I (stm32f10x.h)(0x4D783CB4)
+F (.\battery\GUA_ADC1.c)(0x5AC770FA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gua_adc1.o --omf_browse ..\obj\gua_adc1.crf --depend ..\obj\gua_adc1.d)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (system_stm32f10x.h)(0x4D783CAA)
-I (stm32f10x_conf.h)(0x5501900A)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900A)
 I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
-I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
@@ -134,42 +132,74 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (iic.h)(0x596B2975)
+I (battery\GUA_ADC1.h)(0x5AC770FC)
+F (.\battery\GUA_Battery_Check.c)(0x5AC770FD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gua_battery_check.o --omf_browse ..\obj\gua_battery_check.crf --depend ..\obj\gua_battery_check.d)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900A)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (battery\GUA_ADC1.h)(0x5AC770FC)
+I (battery\GUA_Battery_Check.h)(0x5AC770FE)
+F (.\data\data.c)(0x5AC76E32)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\data.o --omf_browse ..\obj\data.crf --depend ..\obj\data.d)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900A)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-F (.\iic.c)(0x597A138E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\iic.o --omf_browse ..\obj\iic.crf --depend ..\obj\iic.d)
-I (iic.h)(0x596B2975)
-I (stm32f10x.h)(0x4D783CB4)
-I (..\CORE\core_cm3.h)(0x4D523B58)
-I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (system_stm32f10x.h)(0x4D783CAA)
-I (stm32f10x_conf.h)(0x5501900A)
-I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
-I (..\USER\stm32f10x.h)(0x4D783CB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
-I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-F (.\EMV.c)(0x59799945)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\emv.o --omf_browse ..\obj\emv.crf --depend ..\obj\emv.d)
-I (EMV.h)(0x59761320)
+I (data\data.h)(0x5AC76F40)
+I (.\PCF8591\PCF8591.h)(0x5AC76AA1)
+I (.\PCF8591\iic\iic.h)(0x5AC76A72)
+F (.\EMV\EMV.c)(0x5ACCD59A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\emv.o --omf_browse ..\obj\emv.crf --depend ..\obj\emv.d)
+I (EMV\EMV.h)(0x5ACCD558)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -199,45 +229,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\data.c)(0x59D1B81F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\data.o --omf_browse ..\obj\data.crf --depend ..\obj\data.d)
-I (stm32f10x.h)(0x4D783CB4)
-I (..\CORE\core_cm3.h)(0x4D523B58)
-I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (system_stm32f10x.h)(0x4D783CAA)
-I (stm32f10x_conf.h)(0x5501900A)
-I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
-I (..\USER\stm32f10x.h)(0x4D783CB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
-I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-I (data.h)(0x59D0A540)
-I (PCF8591.h)(0x5976119D)
-I (iic.h)(0x596B2975)
-F (.\md5.c)(0x5979609F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\md5.o --omf_browse ..\obj\md5.crf --depend ..\obj\md5.d)
-I (C:\developer\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (md5.h)(0x59795BD0)
-I (..\SYSTEM\sys\sys.h)(0x550F951A)
+F (.\PCF8591\PCF8591.c)(0x5AC76A9C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\pcf8591.o --omf_browse ..\obj\pcf8591.crf --depend ..\obj\pcf8591.d)
+I (PCF8591\PCF8591.h)(0x5AC76AA1)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
@@ -266,8 +260,41 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\SIM.c)(0x599556B1)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim.o --omf_browse ..\obj\sim.crf --depend ..\obj\sim.d)
-I (SIM.h)(0x597804B7)
+I (.\PCF8591\iic\iic.h)(0x5AC76A72)
+I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
+F (.\PCF8591\iic\iic.c)(0x5AC76A2F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\iic.o --omf_browse ..\obj\iic.crf --depend ..\obj\iic.d)
+I (PCF8591\iic\iic.h)(0x5AC76A72)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900A)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
+F (.\SIM\SIM.c)(0x5ACCDCD5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim.o --omf_browse ..\obj\sim.crf --depend ..\obj\sim.d)
+I (SIM\SIM.h)(0x5AC77171)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -302,8 +329,8 @@ I (C:\developer\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
 I (..\SYSTEM\usart\usart.h)(0x597AAEBF)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-F (.\timer.c)(0x599513A2)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
-I (timer.h)(0x59940F3F)
+F (.\timer\timer.c)(0x5AC771E8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
+I (timer\timer.h)(0x5AC77960)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -333,10 +360,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (data.h)(0x59D0A540)
-F (.\Verify_Helper.c)(0x5979A8DA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\verify_helper.o --omf_browse ..\obj\verify_helper.crf --depend ..\obj\verify_helper.d)
-I (Verify_Helper.h)(0x597611E5)
-I (md5.h)(0x59795BD0)
+I (.\data\data.h)(0x5AC76F40)
+F (.\verifier\md5.c)(0x5AC7712A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\md5.o --omf_browse ..\obj\md5.crf --depend ..\obj\md5.d)
+I (C:\developer\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
+I (verifier\md5.h)(0x5AC7712B)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -366,70 +393,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\GUA_Battery_Check.c)(0x59D0ADEB)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gua_battery_check.o --omf_browse ..\obj\gua_battery_check.crf --depend ..\obj\gua_battery_check.d)
-I (stm32f10x.h)(0x4D783CB4)
-I (..\CORE\core_cm3.h)(0x4D523B58)
-I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (system_stm32f10x.h)(0x4D783CAA)
-I (stm32f10x_conf.h)(0x5501900A)
-I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
-I (..\USER\stm32f10x.h)(0x4D783CB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
-I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (GUA_ADC1.h)(0x59D0ADCE)
-I (GUA_Battery_Check.h)(0x59D0AE00)
-F (.\GUA_ADC1.c)(0x59D0ADC3)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gua_adc1.o --omf_browse ..\obj\gua_adc1.crf --depend ..\obj\gua_adc1.d)
-I (stm32f10x.h)(0x4D783CB4)
-I (..\CORE\core_cm3.h)(0x4D523B58)
-I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (system_stm32f10x.h)(0x4D783CAA)
-I (stm32f10x_conf.h)(0x5501900A)
-I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
-I (..\USER\stm32f10x.h)(0x4D783CB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
-I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
-I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (GUA_ADC1.h)(0x59D0ADCE)
-F (..\SYSTEM\sys\sys.c)(0x55018498)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+F (.\verifier\Verify_Helper.c)(0x5AC772A0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\verify_helper.o --omf_browse ..\obj\verify_helper.crf --depend ..\obj\verify_helper.d)
+I (verifier\Verify_Helper.h)(0x5AC772A2)
+I (verifier\md5.h)(0x5AC7712B)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -459,7 +425,37 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\SYSTEM\usart\usart.c)(0x597D58CD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\sys\sys.c)(0x55018498)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+I (..\SYSTEM\sys\sys.h)(0x550F951A)
+I (..\USER\stm32f10x.h)(0x4D783CB4)
+I (..\CORE\core_cm3.h)(0x4D523B58)
+I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x4D783CAA)
+I (..\USER\stm32f10x_conf.h)(0x5501900A)
+I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_bkp.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_can.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_cec.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_crc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dac.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dbgmcu.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_dma.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_exti.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_flash.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_i2c.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_iwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_pwr.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_rtc.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_sdio.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
+I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
+I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
+F (..\SYSTEM\usart\usart.c)(0x597D58CD)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -491,9 +487,9 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\usart\usart.h)(0x597AAEBF)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (..\USER\data.h)(0x59D0A540)
+I (.\data\data.h)(0x5AC76F40)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-F (..\SYSTEM\delay\delay.c)(0x5975FE5F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
+F (..\SYSTEM\delay\delay.c)(0x5975FE5F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -523,10 +519,10 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\CORE\startup_stm32f10x_hd.s)(0x5978C15A)(--cpu Cortex-M3 -g --apcs=interwork -I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F10X_HD SETA 1"--list .\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
-F (..\CORE\core_cm3.c)(0x4C0C587E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\core_cm3.o --omf_browse ..\obj\core_cm3.crf --depend ..\obj\core_cm3.d)
+F (..\CORE\startup_stm32f10x_hd.s)(0x5978C15A)(--cpu Cortex-M3 -g --apcs=interwork -I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 514" --pd "STM32F10X_HD SETA 1"--list .\startup_stm32f10x_hd.lst --xref -o ..\obj\startup_stm32f10x_hd.o --depend ..\obj\startup_stm32f10x_hd.d)
+F (..\CORE\core_cm3.c)(0x4C0C587E)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\core_cm3.o --omf_browse ..\obj\core_cm3.crf --depend ..\obj\core_cm3.d)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-F (..\STM32F10x_FWLib\src\misc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
+F (..\STM32F10x_FWLib\src\misc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\misc.o --omf_browse ..\obj\misc.crf --depend ..\obj\misc.d)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -555,7 +551,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
-F (..\STM32F10x_FWLib\src\stm32f10x_gpio.c)(0x4D79EEC6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_gpio.o --omf_browse ..\obj\stm32f10x_gpio.crf --depend ..\obj\stm32f10x_gpio.d)
+F (..\STM32F10x_FWLib\src\stm32f10x_gpio.c)(0x4D79EEC6)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_gpio.o --omf_browse ..\obj\stm32f10x_gpio.crf --depend ..\obj\stm32f10x_gpio.d)
 I (..\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x4D783BB4)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -584,7 +580,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\STM32F10x_FWLib\src\stm32f10x_rcc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_rcc.o --omf_browse ..\obj\stm32f10x_rcc.crf --depend ..\obj\stm32f10x_rcc.d)
+F (..\STM32F10x_FWLib\src\stm32f10x_rcc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_rcc.o --omf_browse ..\obj\stm32f10x_rcc.crf --depend ..\obj\stm32f10x_rcc.d)
 I (..\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x4D783BB4)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -613,7 +609,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\STM32F10x_FWLib\src\stm32f10x_usart.c)(0x597564F5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_usart.o --omf_browse ..\obj\stm32f10x_usart.crf --depend ..\obj\stm32f10x_usart.d)
+F (..\STM32F10x_FWLib\src\stm32f10x_usart.c)(0x597564F5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_usart.o --omf_browse ..\obj\stm32f10x_usart.crf --depend ..\obj\stm32f10x_usart.d)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -642,7 +638,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\STM32F10x_FWLib\src\stm32f10x_tim.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_tim.o --omf_browse ..\obj\stm32f10x_tim.crf --depend ..\obj\stm32f10x_tim.d)
+F (..\STM32F10x_FWLib\src\stm32f10x_tim.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_tim.o --omf_browse ..\obj\stm32f10x_tim.crf --depend ..\obj\stm32f10x_tim.d)
 I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -671,7 +667,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\STM32F10x_FWLib\src\stm32f10x_adc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY-I C:\developer\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_adc.o --omf_browse ..\obj\stm32f10x_adc.crf --depend ..\obj\stm32f10x_adc.d)
+F (..\STM32F10x_FWLib\src\stm32f10x_adc.c)(0x4D783BB4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier-I C:\Users\于海粟\Desktop\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_adc.o --omf_browse ..\obj\stm32f10x_adc.crf --depend ..\obj\stm32f10x_adc.d)
 I (..\STM32F10x_FWLib\inc\stm32f10x_adc.h)(0x4D783BB4)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -700,4 +696,4 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\README.TXT)(0x55100F76)()
+F (..\README.TXT)(0x00000000)()

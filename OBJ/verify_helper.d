@@ -1,6 +1,6 @@
-..\obj\verify_helper.o: Verify_Helper.c
-..\obj\verify_helper.o: Verify_Helper.h
-..\obj\verify_helper.o: md5.h
+..\obj\verify_helper.o: verifier\Verify_Helper.c
+..\obj\verify_helper.o: verifier\Verify_Helper.h
+..\obj\verify_helper.o: verifier\md5.h
 ..\obj\verify_helper.o: ..\SYSTEM\sys\sys.h
 ..\obj\verify_helper.o: ..\USER\stm32f10x.h
 ..\obj\verify_helper.o: ..\CORE\core_cm3.h

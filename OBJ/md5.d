@@ -1,6 +1,6 @@
-..\obj\md5.o: md5.c
+..\obj\md5.o: verifier\md5.c
 ..\obj\md5.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\md5.o: md5.h
+..\obj\md5.o: verifier\md5.h
 ..\obj\md5.o: ..\SYSTEM\sys\sys.h
 ..\obj\md5.o: ..\USER\stm32f10x.h
 ..\obj\md5.o: ..\CORE\core_cm3.h
