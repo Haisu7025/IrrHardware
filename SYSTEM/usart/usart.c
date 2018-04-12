@@ -89,6 +89,10 @@ u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
 //bit13~0，	接收到的有效字节数目
 u16 USART_RX_STA=0;       //接收状态标记	  
   
+	//DEBUG USE: usart record long buffer.
+	unsigned char usart_record[3000];
+	u16 usart_record_p=0;
+	
 void uart_init(u32 bound){
   //GPIO端口设置
   GPIO_InitTypeDef GPIO_InitStructure;
@@ -137,9 +141,10 @@ void USART1_IRQHandler(void) //串口1中断服务程序
 #if SYSTEM_SUPPORT_OS //如果SYSTEM_SUPPORT_OS为真，则需要支持OS.
     OSIntEnter();
 #endif
-    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) //接收中断(接收到的数据必须是0x0d 0x0a结尾)
+    if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) //接收中断
     {
         res = USART_ReceiveData(USART1); //读取接收到的数据
+				usart_record[usart_record_p++]=res;
                                          //   FE ->0A ->EF ->Rdy
                                          //000->010->011->100
                                          //0x00>0x40>0x60>0x80

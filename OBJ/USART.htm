@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\USART.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\USART.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Tue Apr 10 23:48:43 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Thu Apr 12 22:25:35 2018
 <BR><P>
 <H3>Maximum Stack Usage =        876 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -338,7 +338,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 1066 bytes, Stack size 248 bytes, main.o(.text))
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 1094 bytes, Stack size 248 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 876 + Unknown Stack Size
 <LI>Call Chain = main &rArr; check_sign &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
 </UL>
@@ -378,7 +378,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_IRQHandler
 </UL>
 
-<P><STRONG><a name="[2a]"></a>TIM3_IRQHandler</STRONG> (Thumb, 148 bytes, Stack size 8 bytes, main.o(.text))
+<P><STRONG><a name="[2a]"></a>TIM3_IRQHandler</STRONG> (Thumb, 150 bytes, Stack size 8 bytes, main.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 620<LI>Call Chain = TIM3_IRQHandler &rArr; cycle_check &rArr; generate_warning &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_GetITStatus
@@ -516,7 +516,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;generate_warning
 </UL>
 
-<P><STRONG><a name="[75]"></a>EMV_init</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, emv.o(.text))
+<P><STRONG><a name="[75]"></a>EMV_init</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, emv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = EMV_init &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
@@ -525,21 +525,19 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_init
 </UL>
 
-<P><STRONG><a name="[63]"></a>EMV_open</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, emv.o(.text))
+<P><STRONG><a name="[63]"></a>EMV_open</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, emv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EMV_open
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_EMV
 </UL>
 
-<P><STRONG><a name="[62]"></a>EMV_close</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, emv.o(.text))
+<P><STRONG><a name="[62]"></a>EMV_close</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, emv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EMV_close
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
-<LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
+<BR>[Calls]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 <LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_ms
 </UL>
 <BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;control_EMV
@@ -1073,7 +1071,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;system_init
 </UL>
 
-<P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 208 bytes, Stack size 8 bytes, usart.o(.text))
+<P><STRONG><a name="[32]"></a>USART1_IRQHandler</STRONG> (Thumb, 224 bytes, Stack size 8 bytes, usart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = USART1_IRQHandler &rArr; USART_GetITStatus
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_ReceiveData
@@ -1414,7 +1412,6 @@ Global Symbols
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_A_Read_Byte
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_A_Init
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_open
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_close
 </UL>
 
 <P><STRONG><a name="[a4]"></a>GPIO_ResetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
@@ -1433,7 +1430,6 @@ Global Symbols
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_A_Send_Byte
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC_A_Read_Byte
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM5_Cap_Init
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_open
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_close
 </UL>
 
@@ -2212,17 +2208,17 @@ Local Symbols
 <P><STRONG><a name="[ea]"></a>TI2_Config</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_tim.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI2_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMIConfig
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMIConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
 </UL>
 
 <P><STRONG><a name="[e8]"></a>TI1_Config</STRONG> (Thumb, 108 bytes, Stack size 20 bytes, stm32f10x_tim.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = TI1_Config
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
-<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMIConfig
+<BR>[Called By]<UL><LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_PWMIConfig
 <LI><a href="#[cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
+<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
 </UL>
 
 <P><STRONG><a name="[4c]"></a>_printf_input_char</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, _printf_char_common.o(.text))

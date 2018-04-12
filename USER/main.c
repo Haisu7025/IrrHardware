@@ -29,8 +29,12 @@ u32 cur_count;
 //电池检测
 u16 nGUA_Battery_Check_Value;
 
+
+
 extern u8 TIM5CH1_CAPTURE_STA;  //输入捕获状态
 extern u16 TIM5CH1_CAPTURE_VAL; //输入捕获值
+extern unsigned char usart_record[3000];
+extern u16 usart_record_p;
 
 void GetIDAdd_12byte(char *id)
 {
@@ -251,13 +255,19 @@ int main(void)
 				for (t = 0; t < len; t++)
 				{
 					input_buffer[t] = USART_RX_BUF[t];
-					USART_RX_BUF[t] = 0;
 				}
 				USART_RX_STA = 0;
 				//check success reply
 
 				if (input_buffer[2] == 80)
 				{
+					if(input_buffer[3] == 80){
+							//if '00' is inserted at the beginning
+							len --;
+							for (t=0;t < len;t++){
+									input_buffer[t] = input_buffer[t + 1];
+							}
+					}
 					if (!check_sign(input_buffer, 6))
 					{
 						USART_RX_STA = 0;
@@ -295,6 +305,8 @@ int main(void)
 	while (1)
 	{
 		delay_ms(100);
+		//DEBUG USE: usart record long buffer.
+		//usart_record_p=0;
 		if (USART_RX_STA & 0x8000)
 		{
 			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
