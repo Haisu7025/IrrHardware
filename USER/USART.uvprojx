@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;.\battery;.\data;.\EMV;.\PCF8591;.\PCF8591\iic;.\SIM;.\timer;.\verifier</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;.\battery;.\data;.\EMV;.\PCF8591;.\PCF8591\iic;.\SIM;.\timer;.\verifier;.\LED</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -472,6 +472,11 @@
               <FileName>Verify_Helper.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\verifier\Verify_Helper.c</FilePath>
+            </File>
+            <File>
+              <FileName>led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\LED\led.c</FilePath>
             </File>
           </Files>
         </Group>

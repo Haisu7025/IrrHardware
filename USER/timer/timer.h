@@ -19,6 +19,4 @@ TIM3 - 检测、上报等中断时钟
 TIM5 - 流量计计数输入捕获时钟
 */
 void TIM3_Int_Init(u16 arr, u16 psc);
-
-void TIM5_Cap_Init(u16 arr, u16 psc);
 #endif

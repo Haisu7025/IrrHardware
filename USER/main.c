@@ -9,6 +9,7 @@
 #include "EMV.h"
 #include "Verify_Helper.h"
 #include "GUA_Battery_Check.h"
+#include "LED.h"
 
 //状态
 u32 report_flag;
@@ -28,11 +29,6 @@ u32 cur_count;
 
 //电池检测
 u16 nGUA_Battery_Check_Value;
-
-
-
-extern u8 TIM5CH1_CAPTURE_STA;  //输入捕获状态
-extern u16 TIM5CH1_CAPTURE_VAL; //输入捕获值
 
 void GetIDAdd_12byte(char *id)
 {
@@ -221,11 +217,10 @@ int main(void)
 	char STM_ID[12];
 	char hb_content[6];
 
-	char i, t;
+	unsigned char i, t;
 	char regist_success_flag = 0;
 	u16 tmp_check_time;
 	u16 len, len_r = 0;
-	char usart_reset_flag = 0;
 
 	//===================初始化配置===================
 	system_init();
@@ -292,18 +287,21 @@ int main(void)
 
 	//===================计时器初始化==============
 	TIM3_Int_Init(10000, 7199);	//10Khz的计数频率，计数到5000为500ms
-	TIM5_Cap_Init(0XFFFF, 72 - 1); //以1Mhz的频率计数
-
-	//
+	
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
 	{
 		USART_RX_BUF[t] = 0;
 	}
+	
+	//进入轮询，LED快速闪烁
+	
 	//===================轮询接收===================
 	while (1)
 	{
+		LED(1);
 		delay_ms(100);
+		LED(0);
 		
 		//DEBUG USE: usart record long buffer.
 		//usart_record_p=0;
@@ -317,7 +315,6 @@ int main(void)
 				USART_RX_BUF[t] = 0;
 			}
 			USART_RX_STA = 0;
-			usart_reset_flag = 0;
 
 			//checksum
 			if (!check_sign(input_buffer, len))
@@ -552,51 +549,3 @@ void TIM3_IRQHandler(void) //TIM3中断
 	}
 }
 //检测周期
-
-//定时器5中断服务程序
-//计数器检测流量
-void TIM5_IRQHandler(void)
-{
-
-	if ((TIM5CH1_CAPTURE_STA & 0X80) == 0) //还未成功捕获
-	{
-
-		if (TIM_GetITStatus(TIM5, TIM_IT_CC1) != RESET) //捕获1发生捕获事件
-		{
-			if (TIM5CH1_CAPTURE_STA & 0X40) //捕获到一个下降沿
-			{
-				TIM5CH1_CAPTURE_STA |= 0X80; //标记成功捕获到一次高电平脉宽
-
-				//====
-				if (count_flag)
-				{
-					count_flag = 0;
-					cur_count++;
-				}
-				//====
-
-				TIM5CH1_CAPTURE_VAL = TIM_GetCapture1(TIM5);
-				TIM_OC1PolarityConfig(TIM5, TIM_ICPolarity_Rising); //CC1P=0 设置为上升沿捕获
-
-				TIM5CH1_CAPTURE_STA = 0; //开始下一次捕获
-			}
-			else //还未开始,第一次捕获上升沿
-			{
-				TIM5CH1_CAPTURE_STA = 0; //清空
-				TIM5CH1_CAPTURE_VAL = 0;
-				TIM_SetCounter(TIM5, 0);
-				TIM5CH1_CAPTURE_STA |= 0X40; //标记捕获到了上升沿
-
-				//====
-				count_flag = 1;
-				//====
-
-				TIM_OC1PolarityConfig(TIM5, TIM_ICPolarity_Falling); //CC1P=1 设置为下降沿捕获
-			}
-		}
-	}
-
-	TIM_ClearITPendingBit(TIM5, TIM_IT_CC1 | TIM_IT_Update); //清除中断标志位
-}
-
-//上报周期

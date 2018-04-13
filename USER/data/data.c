@@ -10,6 +10,8 @@ warnstate ws = {0, 0, 0};
 timing tim = {10, 2, 5};
 
 char debug_A, debug_B, debug_C, debug_D;
+char debug_1, debug_2, debug_3, debug_4;
+
 
 char *byte2bit(char c)
 {
@@ -79,11 +81,30 @@ void alarm()
 
 void get_sensor_data()
 {
+		u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
+	
+		pcf8591_B_ad_write(0x41);	//Specify channel to ch0
+		delay_us(50);
+		
+		ad_temp=pcf8591_B_ad_read();
+		ad_result=(ad_temp*5000)/256;
+		ad_result=ad_result%9999;
+    ad_result1=ad_result/1000;
+   	ad_result2=ad_result%1000/100;
+   	ad_result3=ad_result%100/10;
+   	ad_result4=ad_result%10;
+		
+		
     //		char debug_A,debug_B,debug_C,debug_D;
     cur.Humi1 = (debug_A = AD_A_generate_data(3));
     cur.Humi2 = (debug_B = AD_A_generate_data(2));
     cur.Humi3 = (debug_C = AD_A_generate_data(1));
     cur.Humi4 = (debug_D = AD_A_generate_data(0));
+	
+		debug_1 = AD_B_generate_data(3);
+		debug_2 = AD_B_generate_data(2);
+		debug_3 = AD_B_generate_data(1);
+		debug_4 = AD_B_generate_data(0);
 
     //cur.Temp_cur = AD_B_generate_data(1); //温度对应channel？
 

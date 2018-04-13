@@ -140,7 +140,6 @@ void USART1_IRQHandler(void) //串口1中断服务程序
     if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) //接收中断
     {
         res = USART_ReceiveData(USART1); //读取接收到的数据
-				usart_record[usart_record_p++]=res;
                                          //   FE ->0A ->EF ->Rdy
                                          //000->010->011->100
                                          //0x00>0x40>0x60>0x80

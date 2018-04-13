@@ -12,6 +12,7 @@
 "..\obj\timer.o"
 "..\obj\md5.o"
 "..\obj\verify_helper.o"
+"..\obj\led.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
 "..\obj\delay.o"

@@ -42,3 +42,4 @@
 ..\obj\main.o: .\verifier\Verify_Helper.h
 ..\obj\main.o: .\verifier\md5.h
 ..\obj\main.o: .\battery\GUA_Battery_Check.h
+..\obj\main.o: .\LED\LED.h
