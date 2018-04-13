@@ -5,85 +5,67 @@
 //**********************************PCF8591操作函数****************************
 
 //初始化IIC接口
-void PCF8591_A_Init(void)
+void PCF8591a_Init(void)
 {
-	IIC_A_Init();
+	IIC1_Init();
 }
 
-void pcf8591_A_ad_write(u8 c)
+void pcf8591a_ad_write(u8 c)
 {
-  	IIC_A_Start();
-  	IIC_A_Send_Byte(pcf8591_write); //发送器件地址+写指令
-  	IIC_A_Send_Byte(c);
-  	IIC_A_Stop();
+	IIC1_Start();
+	IIC1_Send_Byte(pcf8591_write); //发送器件地址+写指令
+	IIC1_Send_Byte(c);
+	IIC1_Stop();
 }
 
-u8 pcf8591_A_ad_read(void)
+u8 pcf8591a_ad_read(void)
 {
-  	u8 dat;
-  	IIC_A_Start();
-  	IIC_A_Send_Byte(pcf8591_read); //发送器件地址+读指令
-  	dat=IIC_A_Read_Byte(0);
-  	IIC_A_Stop();
-  	return(dat*2);
+	u8 dat;
+	IIC1_Start();
+	IIC1_Send_Byte(pcf8591_read); //发送器件地址+读指令
+	dat = IIC1_Read_Byte(0);
+	IIC1_Stop();
+	return (dat);
 }
 
-void pcf8591_A_da_write(u8 dat)
+void pcf8591a_da_write(u8 dat)
 {
-  	IIC_A_Start();
-  	IIC_A_Send_Byte(pcf8591_write); //发送器件地址+写指令
-  	IIC_A_Send_Byte(0x40);          //发送控制字节
-  	IIC_A_Send_Byte(dat);           //发送DA数值
-  	IIC_A_Stop();
+	IIC1_Start();
+	IIC1_Send_Byte(pcf8591_write); //发送器件地址+写指令
+	IIC1_Send_Byte(0x40);		   //发送控制字节
+	IIC1_Send_Byte(dat);		   //发送DA数值
+	IIC1_Stop();
 }
 
-void PCF8591_B_Init(void)
+//初始化IIC接口
+void PCF8591b_Init(void)
 {
-	IIC_B_Init();
+	IIC2_Init();
 }
 
-void pcf8591_B_ad_write(u8 c)
+void pcf8591b_ad_write(u8 c)
 {
-  	IIC_B_Start();
-  	IIC_B_Send_Byte(pcf8591_write); //发送器件地址+写指令
-  	IIC_B_Send_Byte(c);
-  	IIC_B_Stop();
+	IIC2_Start();
+	IIC2_Send_Byte(pcf8591_write); //发送器件地址+写指令
+	IIC2_Send_Byte(c);
+	IIC2_Stop();
 }
 
-u8 pcf8591_B_ad_read(void)
+u8 pcf8591b_ad_read(void)
 {
-  	u8 dat;
-  	IIC_B_Start();
-  	IIC_B_Send_Byte(pcf8591_read); //发送器件地址+读指令
-  	dat=IIC_B_Read_Byte(0);
-  	IIC_B_Stop();
-  	return(dat*2);
+	u8 dat;
+	IIC2_Start();
+	IIC2_Send_Byte(pcf8591_read); //发送器件地址+读指令
+	dat = IIC2_Read_Byte(0);
+	IIC2_Stop();
+	return (dat);
 }
 
-void pcf8591_B_da_write(u8 dat)
+void pcf8591b_da_write(u8 dat)
 {
-  	IIC_B_Start();
-  	IIC_B_Send_Byte(pcf8591_write); //发送器件地址+写指令
-  	IIC_B_Send_Byte(0x40);          //发送控制字节
-  	IIC_B_Send_Byte(dat);           //发送DA数值
-  	IIC_B_Stop();
-}
-
-//用户使用函数
-u8 AD_A_generate_data(u8 channel){
-	//channel:0,1,2,3
-	u8 AD_data;
-	pcf8591_A_ad_write(0x41+channel);
-	delay_us(50);
-	AD_data=pcf8591_A_ad_read();
-	return AD_data;
-}
-
-u8 AD_B_generate_data(u8 channel){
-	//channel:0,1,2,3
-	u8 AD_data;
-	pcf8591_B_ad_write(0x41+channel);
-	delay_us(50);
-	AD_data=pcf8591_B_ad_read();
-	return AD_data;
+	IIC2_Start();
+	IIC2_Send_Byte(pcf8591_write); //发送器件地址+写指令
+	IIC2_Send_Byte(0x40);		   //发送控制字节
+	IIC2_Send_Byte(dat);		   //发送DA数值
+	IIC2_Stop();
 }

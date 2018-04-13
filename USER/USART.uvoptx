@@ -181,18 +181,18 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>72</LineNumber>
+          <LineNumber>124</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134223848</Address>
+          <Address>134221672</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>.\SIM\SIM.c</Filename>
+          <Filename>\vmware-host\Shared Folders\shared\project\USER\data\data.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression></Expression>
+          <Expression>\\USART\data/data.c\124</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -306,17 +306,42 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>usart_record_p</ItemText>
+          <ItemText>debug_A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>control_sig</ItemText>
+          <ItemText>debug_B</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>mod_pack</ItemText>
+          <ItemText>debug_C</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_D</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_1</ItemText>
+        </Ww>
+        <Ww>
+          <count>5</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_2</ItemText>
+        </Ww>
+        <Ww>
+          <count>6</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_3</ItemText>
+        </Ww>
+        <Ww>
+          <count>7</count>
+          <WinNumber>2</WinNumber>
+          <ItemText>debug_4</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

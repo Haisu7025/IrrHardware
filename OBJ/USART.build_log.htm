@@ -21,40 +21,226 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-Z:\shared\project\USER\USART.uvprojx
+\\vmware-host\Shared Folders\shared\project\USER\USART.uvprojx
 Project File Date:  04/13/2018
 
 <h2>Output:</h2>
 Build target 'USART'
+compiling main.c...
+..\SYSTEM\usart\usart.h(39): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
+  void UART_sendWelcome();
+.\data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
+  void alarm();
+.\data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
+  void get_sensor_data();
+.\SIM\SIM.h(8): warning:  #1295-D: Deprecated declaration module_restart - give arg types
+  void module_restart();
+.\SIM\SIM.h(9): warning:  #1295-D: Deprecated declaration modify_cmnet - give arg types
+  void modify_cmnet();
+.\SIM\SIM.h(10): warning:  #1295-D: Deprecated declaration save_modify - give arg types
+  void save_modify();
+.\SIM\SIM.h(11): warning:  #1295-D: Deprecated declaration SIM_module_init - give arg types
+  void SIM_module_init();
+.\SIM\SIM.h(12): warning:  #1295-D: Deprecated declaration enter_com_mode - give arg types
+  void enter_com_mode();
+.\SIM\SIM.h(13): warning:  #1295-D: Deprecated declaration enter_configuration_mode - give arg types
+  void enter_configuration_mode();
+.\EMV\EMV.h(9): warning:  #1295-D: Deprecated declaration EMV_init - give arg types
+  void EMV_init();
+.\EMV\EMV.h(10): warning:  #1295-D: Deprecated declaration EMV_open - give arg types
+  void EMV_open();
+.\EMV\EMV.h(11): warning:  #1295-D: Deprecated declaration EMV_close - give arg types
+  void EMV_close();
+.\EMV\EMV.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\battery\GUA_Battery_Check.h(41): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\LED\LED.h(5): warning:  #1295-D: Deprecated declaration LED_GPIO_init - give arg types
+  void LED_GPIO_init();
+.\LED\LED.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(82): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+        sign_message(package, 18);
+main.c(101): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+        sign_message(package, 15);
+main.c(126): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+        sign_message(package, 16);
+main.c(140): warning:  #223-D: function "report_warningstate" declared implicitly
+        report_warningstate(report);
+main.c(145): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+        sign_message(package, 10);
+main.c(161): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+        modify_heartbeat_content(heartbeat);
+main.c(283): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+        sign_message(hb_content, 6);
+main.c(193): warning:  #177-D: variable "AD_A_result" was declared but never referenced
+        char AD_A_result[4];
+main.c(194): warning:  #177-D: variable "AD_B_result" was declared but never referenced
+        char AD_B_result[4];
+main.c(195): warning:  #177-D: variable "output_buffer" was declared but never referenced
+        char output_buffer[200];
+main.c(204): warning:  #177-D: variable "port_str" was declared but never referenced
+        char port_str[5];
+main.c(206): warning:  #177-D: variable "input_package_index_high" was declared but never referenced
+        char input_package_index_high;
+main.c(207): warning:  #177-D: variable "input_package_index_low" was declared but never referenced
+        char input_package_index_low;
+main.c(208): warning:  #177-D: variable "output_package_index_high" was declared but never referenced
+        char output_package_index_high;
+main.c(209): warning:  #177-D: variable "output_package_index_low" was declared but never referenced
+        char output_package_index_low;
+main.c(211): warning:  #177-D: variable "module_index_high" was declared but never referenced
+        char module_index_high;
+main.c(212): warning:  #177-D: variable "module_index_low" was declared but never referenced
+        char module_index_low;
+main.c(214): warning:  #177-D: variable "checksum" was declared but never referenced
+        char checksum;
+main.c(217): warning:  #177-D: variable "STM_ID" was declared but never referenced
+        char STM_ID[12];
+main.c(221): warning:  #177-D: variable "regist_success_flag" was declared but never referenced
+        char regist_success_flag = 0;
+main.c(223): warning:  #177-D: variable "len_r" was declared but never referenced
+        u16 len, len_r = 0;
+main.c(551): warning:  #1-D: last line of file ends without a newline
+  //检测周�?                ^
+main.c: 38 warnings, 0 errors
+compiling stm32f10x_it.c...
+compiling system_stm32f10x.c...
+compiling GUA_ADC1.c...
+battery\GUA_ADC1.h(41): warning:  #1-D: last line of file ends without a newline
+  #endif
+battery\GUA_ADC1.c(108): warning:  #1-D: last line of file ends without a newline
+  }
+battery\GUA_ADC1.c: 2 warnings, 0 errors
+compiling GUA_Battery_Check.c...
+battery\GUA_ADC1.h(41): warning:  #1-D: last line of file ends without a newline
+  #endif
+battery\GUA_Battery_Check.h(41): warning:  #1-D: last line of file ends without a newline
+  #endif
+battery\GUA_Battery_Check.c(51): warning:  #1-D: last line of file ends without a newline
+  }
+battery\GUA_Battery_Check.c: 3 warnings, 0 errors
 compiling data.c...
 data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
   void alarm();
 data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
   void get_sensor_data();
-data\data.c(27): warning:  #1166-D: returning pointer to local variable
+data\data.c(44): warning:  #1166-D: returning pointer to local variable
       return rt;
-data\data.c(58): warning:  #68-D: integer conversion resulted in a change of sign
+data\data.c(75): warning:  #68-D: integer conversion resulted in a change of sign
           ws.Volt_state = -1;
-data\data.c(66): warning:  #68-D: integer conversion resulted in a change of sign
+data\data.c(83): warning:  #68-D: integer conversion resulted in a change of sign
           ws.Humi_state = -1;
-data\data.c(74): warning:  #68-D: integer conversion resulted in a change of sign
+data\data.c(91): warning:  #68-D: integer conversion resulted in a change of sign
           ws.Pres_state = -1;
-data\data.c(84): warning:  #550-D: variable "ad_result1" was set but never used
+data\data.c(101): warning:  #550-D: variable "ad_result1" was set but never used
                 u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(84): warning:  #550-D: variable "ad_result2" was set but never used
+data\data.c(101): warning:  #550-D: variable "ad_result2" was set but never used
                 u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(84): warning:  #550-D: variable "ad_result3" was set but never used
+data\data.c(101): warning:  #550-D: variable "ad_result3" was set but never used
                 u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(84): warning:  #550-D: variable "ad_result4" was set but never used
+data\data.c(101): warning:  #550-D: variable "ad_result4" was set but never used
                 u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
 data\data.c: 10 warnings, 0 errors
+compiling EMV.c...
+EMV\EMV.h(9): warning:  #1295-D: Deprecated declaration EMV_init - give arg types
+  void EMV_init();
+EMV\EMV.h(10): warning:  #1295-D: Deprecated declaration EMV_open - give arg types
+  void EMV_open();
+EMV\EMV.h(11): warning:  #1295-D: Deprecated declaration EMV_close - give arg types
+  void EMV_close();
+EMV\EMV.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+EMV\EMV.c(40): warning:  #1-D: last line of file ends without a newline
+  }
+EMV\EMV.c: 5 warnings, 0 errors
+compiling PCF8591.c...
+PCF8591\PCF8591.c(71): warning:  #1-D: last line of file ends without a newline
+  }
+PCF8591\PCF8591.c: 1 warning, 0 errors
+compiling iic.c...
+compiling SIM.c...
+SIM\SIM.h(8): warning:  #1295-D: Deprecated declaration module_restart - give arg types
+  void module_restart();
+SIM\SIM.h(9): warning:  #1295-D: Deprecated declaration modify_cmnet - give arg types
+  void modify_cmnet();
+SIM\SIM.h(10): warning:  #1295-D: Deprecated declaration save_modify - give arg types
+  void save_modify();
+SIM\SIM.h(11): warning:  #1295-D: Deprecated declaration SIM_module_init - give arg types
+  void SIM_module_init();
+SIM\SIM.h(12): warning:  #1295-D: Deprecated declaration enter_com_mode - give arg types
+  void enter_com_mode();
+SIM\SIM.h(13): warning:  #1295-D: Deprecated declaration enter_configuration_mode - give arg types
+  void enter_configuration_mode();
+..\SYSTEM\usart\usart.h(39): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
+  void UART_sendWelcome();
+SIM\SIM.c(36): warning:  #177-D: variable "target" was declared but never referenced
+                char target;
+SIM\SIM.c(150): warning:  #1-D: last line of file ends without a newline
+  }
+SIM\SIM.c: 9 warnings, 0 errors
+compiling timer.c...
+.\data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
+  void alarm();
+.\data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
+  void get_sensor_data();
+timer\timer.c: 2 warnings, 0 errors
+compiling md5.c...
+compiling Verify_Helper.c...
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(10): warning:  #68-D: integer conversion resulted in a change of sign
+  char Secure_Key[16] = {-25, 3, -117, 34, -8, 117, 0, 45, 88, -6, -20, 44, -45, 122, 122, -1};
+verifier\Verify_Helper.c(26): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+    mmcpy(temp + msg_full_len - 1, Secure_Key, sizeof(Secure_Key));
+verifier\Verify_Helper.c(43): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+    mmcpy(temp + msg_full_len - 1, Secure_Key, sizeof(Secure_Key));
+verifier\Verify_Helper.c(39): warning:  #177-D: variable "i" was declared but never referenced
+    char i;
+verifier\Verify_Helper.c: 10 warnings, 0 errors
+compiling led.c...
+LED\led.h(5): warning:  #1295-D: Deprecated declaration LED_GPIO_init - give arg types
+  void LED_GPIO_init();
+LED\led.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+LED\led.c(23): warning:  #1-D: last line of file ends without a newline
+  }
+LED\led.c: 3 warnings, 0 errors
+compiling sys.c...
+compiling usart.c...
+..\SYSTEM\usart\usart.h(39): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
+  void UART_sendWelcome();
+.\data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
+  void alarm();
+.\data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
+  void get_sensor_data();
+..\SYSTEM\usart\usart.c: 3 warnings, 0 errors
+compiling delay.c...
+assembling startup_stm32f10x_hd.s...
+compiling core_cm3.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_usart.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_adc.c...
 linking...
-Program Size: Code=20248 RO-data=396 RW-data=208 ZI-data=1832  
+Program Size: Code=20164 RO-data=396 RW-data=208 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\USART.axf" - 0 Error(s), 10 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 86 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  Z:\shared\project\USER\RTE
+  \\vmware-host\Shared Folders\shared\project\USER\RTE
   C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0
 
 <h2>Collection of Component Files used:</h2>

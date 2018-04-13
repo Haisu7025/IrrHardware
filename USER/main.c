@@ -181,8 +181,8 @@ void system_init()
 	//delay_init();									//延时函数初始化
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);								//串口初始化为115200
-	PCF8591_A_Init();
-	PCF8591_B_Init();
+	PCF8591a_Init();
+	PCF8591b_Init();
 	EMV_init();
 	GUA_Battery_Check_Init();
 }

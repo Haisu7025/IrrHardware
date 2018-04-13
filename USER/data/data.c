@@ -12,6 +12,23 @@ timing tim = {10, 2, 5};
 char debug_A, debug_B, debug_C, debug_D;
 char debug_1, debug_2, debug_3, debug_4;
 
+u8 ADa_generate_data(u8 channel){
+	//channel:0,1,2,3
+	u8 AD_data;
+	pcf8591a_ad_write(0x41+channel);
+	delay_us(50);
+	AD_data=pcf8591a_ad_read();
+	return AD_data;
+}
+
+u8 ADb_generate_data(u8 channel){
+	//channel:0,1,2,3
+	u8 AD_data;
+	pcf8591b_ad_write(0x41+channel);
+	delay_us(50);
+	AD_data=pcf8591b_ad_read();
+	return AD_data;
+}
 
 char *byte2bit(char c)
 {
@@ -83,10 +100,10 @@ void get_sensor_data()
 {
 		u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
 	
-		pcf8591_B_ad_write(0x41);	//Specify channel to ch0
+		pcf8591b_ad_write(0x41);	//Specify channel to ch0
 		delay_us(50);
 		
-		ad_temp=pcf8591_B_ad_read();
+		ad_temp=pcf8591b_ad_read();
 		ad_result=(ad_temp*5000)/256;
 		ad_result=ad_result%9999;
     ad_result1=ad_result/1000;
@@ -96,40 +113,28 @@ void get_sensor_data()
 		
 		
     //		char debug_A,debug_B,debug_C,debug_D;
-    cur.Humi1 = (debug_A = AD_A_generate_data(3));
-    cur.Humi2 = (debug_B = AD_A_generate_data(2));
-    cur.Humi3 = (debug_C = AD_A_generate_data(1));
-    cur.Humi4 = (debug_D = AD_A_generate_data(0));
+    cur.Humi1 = (debug_A = ADa_generate_data(3));
+    cur.Humi2 = (debug_B = ADa_generate_data(2));
+    cur.Humi3 = (debug_C = ADa_generate_data(1));
+    cur.Humi4 = (debug_D = ADa_generate_data(0));
 	
-		debug_1 = AD_B_generate_data(3);
-		debug_2 = AD_B_generate_data(2);
-		debug_3 = AD_B_generate_data(1);
-		debug_4 = AD_B_generate_data(0);
-
-    //cur.Temp_cur = AD_B_generate_data(1); //温度对应channel？
-
-    //    cur.Humi_cur = 1 / 4 * (AD_A_generate_data(3) +
-    //                            AD_A_generate_data(2) +
-    //                            AD_A_generate_data(1) +
-    //                            AD_A_generate_data(0));
-    cur.Humi_cur = (debug_A / 4 + debug_B / 4 + debug_C / 4 + debug_D / 4);
-
-    cur.Pres_cur = AD_B_generate_data(0); //压力变送器对应channel
-
-    cur.Flow_cur = cur_count * 1000 / 450; //当前计数值
+		debug_1 = ADb_generate_data(3);
+		debug_2 = ADb_generate_data(2);
+		debug_3 = ADb_generate_data(1);
+		debug_4 = ADb_generate_data(0);
 }
 
 void FourChannelADRead(char AD_A_result[], char AD_B_result[])
 {
-    AD_A_result[0] = AD_A_generate_data(0);
-    AD_A_result[1] = AD_A_generate_data(1);
-    AD_A_result[2] = AD_A_generate_data(2);
-    AD_A_result[3] = AD_A_generate_data(3);
+//    AD_A_result[0] = AD_A_generate_data(0);
+//    AD_A_result[1] = AD_A_generate_data(1);
+//    AD_A_result[2] = AD_A_generate_data(2);
+//    AD_A_result[3] = AD_A_generate_data(3);
 
-    AD_B_result[0] = AD_B_generate_data(0);
-    AD_B_result[1] = AD_B_generate_data(1);
-    AD_B_result[2] = AD_B_generate_data(2);
-    AD_B_result[3] = AD_B_generate_data(3);
+//    AD_B_result[0] = AD_B_generate_data(0);
+//    AD_B_result[1] = AD_B_generate_data(1);
+//    AD_B_result[2] = AD_B_generate_data(2);
+//    AD_B_result[3] = AD_B_generate_data(3);
 }
 
 void report_curstate(char *report)
