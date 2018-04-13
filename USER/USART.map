@@ -1199,7 +1199,7 @@ Image component sizes
        228         10          0          0          0       1521   gua_adc1.o
         50          0          0          0          0        688   gua_battery_check.o
       1212         16          0          0          0       3900   iic.o
-      2344        174          0         42          0     281764   main.o
+      2344        176          0         42          0     281784   main.o
       2372        264          0         64          0       3924   md5.o
        220         22          0          0          0       1721   misc.o
        252          0          0          0          0       2034   pcf8591.o
@@ -1218,7 +1218,7 @@ Image component sizes
        164          4          0         16          0       1677   verify_helper.o
 
     ----------------------------------------------------------------------
-     17650       1218        336        208       4748     368592   Object Totals
+     17650       1220        336        208       4748     368612   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          6          0          0          2          2          0   (incl. Padding)
 
@@ -1289,9 +1289,9 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     20380       1426        396        208       4848     367816   Grand Totals
-     20380       1426        396        208       4848     367816   ELF Image Totals
-     20380       1426        396        208          0          0   ROM Totals
+     20380       1428        396        208       4848     367836   Grand Totals
+     20380       1428        396        208       4848     367836   ELF Image Totals
+     20380       1428        396        208          0          0   ROM Totals
 
 ==============================================================================
 

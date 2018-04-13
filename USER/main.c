@@ -33,8 +33,6 @@ u16 nGUA_Battery_Check_Value;
 
 extern u8 TIM5CH1_CAPTURE_STA;  //输入捕获状态
 extern u16 TIM5CH1_CAPTURE_VAL; //输入捕获值
-extern unsigned char usart_record[3000];
-extern u16 usart_record_p;
 
 void GetIDAdd_12byte(char *id)
 {
@@ -227,6 +225,7 @@ int main(void)
 	char regist_success_flag = 0;
 	u16 tmp_check_time;
 	u16 len, len_r = 0;
+	char usart_reset_flag = 0;
 
 	//===================初始化配置===================
 	system_init();
@@ -305,8 +304,10 @@ int main(void)
 	while (1)
 	{
 		delay_ms(100);
+		
 		//DEBUG USE: usart record long buffer.
 		//usart_record_p=0;
+				
 		if (USART_RX_STA & 0x8000)
 		{
 			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
@@ -316,6 +317,7 @@ int main(void)
 				USART_RX_BUF[t] = 0;
 			}
 			USART_RX_STA = 0;
+			usart_reset_flag = 0;
 
 			//checksum
 			if (!check_sign(input_buffer, len))
@@ -430,10 +432,6 @@ int main(void)
 				break;
 			}
 			continue;
-		}
-		else
-		{
-			USART_RX_STA = 0;
 		}
 	}
 }

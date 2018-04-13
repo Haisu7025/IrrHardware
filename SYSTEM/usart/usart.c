@@ -87,11 +87,7 @@ u8 USART_RX_BUF[USART_REC_LEN];     //接收缓冲,最大USART_REC_LEN个字节.
 //bit15，	接收完成标志
 //bit14，	接收到0x0d
 //bit13~0，	接收到的有效字节数目
-u16 USART_RX_STA=0;       //接收状态标记	  
-  
-	//DEBUG USE: usart record long buffer.
-	unsigned char usart_record[3000];
-	u16 usart_record_p=0;
+u16 USART_RX_STA=0;       //接收状态标记
 	
 void uart_init(u32 bound){
   //GPIO端口设置
@@ -151,7 +147,7 @@ void USART1_IRQHandler(void) //串口1中断服务程序
         switch (USART_RX_STA & 0xE000)
         {            //高3位的状态:
         case 0x0000: //还没收到FE
-            if ((USART_RX_STA & 0xE000) > (USART_REC_LEN - 1))
+            if ((USART_RX_STA & 0x1FFF) > (USART_REC_LEN - 1))
             { //如果长度异常，则清空消息
                 //printf("Long!\r\n");
                 USART_RX_STA = 0;
