@@ -3,6 +3,7 @@
         "*.p4": "cpp",
         "*.v": "verilog",
         "*.bsv": "c",
-        "emv.h": "c"
+        "emv.h": "c",
+        "data.h": "c"
     }
 }

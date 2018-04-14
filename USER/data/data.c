@@ -114,15 +114,15 @@ void get_sensor_data()
 
 void FourChannelADRead(char AD_A_result[], char AD_B_result[])
 {
-    //    AD_A_result[0] = AD_A_generate_data(0);
-    //    AD_A_result[1] = AD_A_generate_data(1);
-    //    AD_A_result[2] = AD_A_generate_data(2);
-    //    AD_A_result[3] = AD_A_generate_data(3);
+    AD_A_result[0] = ADa_generate_data(0);
+    AD_A_result[1] = ADa_generate_data(1);
+    AD_A_result[2] = ADa_generate_data(2);
+    AD_A_result[3] = ADa_generate_data(3);
 
-    //    AD_B_result[0] = AD_B_generate_data(0);
-    //    AD_B_result[1] = AD_B_generate_data(1);
-    //    AD_B_result[2] = AD_B_generate_data(2);
-    //    AD_B_result[3] = AD_B_generate_data(3);
+    AD_B_result[0] = ADb_generate_data(0);
+    AD_B_result[1] = ADb_generate_data(1);
+    AD_B_result[2] = ADb_generate_data(2);
+    AD_B_result[3] = ADb_generate_data(3);
 }
 
 void report_curstate(char *report)

@@ -30,6 +30,10 @@ u32 cur_count;
 //电池检测
 u16 nGUA_Battery_Check_Value;
 
+//AD检测
+char ADa_result[4];
+char ADb_result[4];
+
 void GetIDAdd_12byte(char *id)
 {
 	//获取CPU唯一ID
@@ -190,8 +194,6 @@ void system_init()
 int main(void)
 {
 	//variable established
-	char AD_A_result[4];
-	char AD_B_result[4];
 	char output_buffer[200];
 	unsigned char input_buffer[200];
 
@@ -443,7 +445,21 @@ int main(void)
 void cycle_check()
 {
 	//获取传感器数据
-	get_sensor_data();
+	//get_sensor_data();
+	FourChannelADRead(ADa_result, ADb_result);
+
+	/*暂定数据格式为：
+	* ADa:ch0,ch1,ch2,ch3 - 四路湿度值
+	* ADb:ch0 - 电池电压
+	* ADb:ch1 - 水压值
+	* ADb:ch2,ch3 - 闲置
+	*/
+	cur.Humi1 = ADa_result[0];
+	cur.Humi2 = ADa_result[1];
+	cur.Humi3 = ADa_result[2];
+	cur.Humi4 = ADa_result[3];
+	cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4 cur.Volt_cur = ADb_result[0];
+	cur.Pres_cur = ADb_result[1];
 
 	//自动控制
 	// if (auto_control_flag)
