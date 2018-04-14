@@ -9,25 +9,27 @@ curr cur = {20, 20, 20, 20, 20, 20, 20, 20};
 warnstate ws = {0, 0, 0};
 timing tim = {10, 2, 5};
 
-char debug_A, debug_B, debug_C, debug_D;
-char debug_1, debug_2, debug_3, debug_4;
+char debug_a_c1, debug_a_c2, debug_a_c3, debug_a_c4;
+char debug_b_c1, debug_b_c2, debug_b_c3, debug_b_c4;
 
-u8 ADa_generate_data(u8 channel){
-	//channel:0,1,2,3
-	u8 AD_data;
-	pcf8591a_ad_write(0x41+channel);
-	delay_us(50);
-	AD_data=pcf8591a_ad_read();
-	return AD_data;
+u8 ADa_generate_data(u8 channel)
+{
+    //channel:0,1,2,3
+    u8 AD_data;
+    pcf8591a_ad_write(0x41 + channel);
+    delay_us(50);
+    AD_data = pcf8591a_ad_read();
+    return AD_data;
 }
 
-u8 ADb_generate_data(u8 channel){
-	//channel:0,1,2,3
-	u8 AD_data;
-	pcf8591b_ad_write(0x41+channel);
-	delay_us(50);
-	AD_data=pcf8591b_ad_read();
-	return AD_data;
+u8 ADb_generate_data(u8 channel)
+{
+    //channel:0,1,2,3
+    u8 AD_data;
+    pcf8591b_ad_write(0x41 + channel);
+    delay_us(50);
+    AD_data = pcf8591b_ad_read();
+    return AD_data;
 }
 
 char *byte2bit(char c)
@@ -98,43 +100,29 @@ void alarm()
 
 void get_sensor_data()
 {
-		u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-	
-		pcf8591b_ad_write(0x41);	//Specify channel to ch0
-		delay_us(50);
-		
-		ad_temp=pcf8591b_ad_read();
-		ad_result=(ad_temp*5000)/256;
-		ad_result=ad_result%9999;
-    ad_result1=ad_result/1000;
-   	ad_result2=ad_result%1000/100;
-   	ad_result3=ad_result%100/10;
-   	ad_result4=ad_result%10;
-		
-		
-    //		char debug_A,debug_B,debug_C,debug_D;
-    cur.Humi1 = (debug_A = ADa_generate_data(3));
-    cur.Humi2 = (debug_B = ADa_generate_data(2));
-    cur.Humi3 = (debug_C = ADa_generate_data(1));
-    cur.Humi4 = (debug_D = ADa_generate_data(0));
-	
-		debug_1 = ADb_generate_data(3);
-		debug_2 = ADb_generate_data(2);
-		debug_3 = ADb_generate_data(1);
-		debug_4 = ADb_generate_data(0);
+    //调试用
+    debug_a_c1 = ADa_generate_data(3);
+    debug_a_c2 = ADa_generate_data(2);
+    debug_a_c3 = ADa_generate_data(1);
+    debug_a_c4 = ADa_generate_data(0);
+
+    debug_b_c1 = ADb_generate_data(3);
+    debug_b_c2 = ADb_generate_data(2);
+    debug_b_c3 = ADb_generate_data(1);
+    debug_b_c4 = ADb_generate_data(0);
 }
 
 void FourChannelADRead(char AD_A_result[], char AD_B_result[])
 {
-//    AD_A_result[0] = AD_A_generate_data(0);
-//    AD_A_result[1] = AD_A_generate_data(1);
-//    AD_A_result[2] = AD_A_generate_data(2);
-//    AD_A_result[3] = AD_A_generate_data(3);
+    //    AD_A_result[0] = AD_A_generate_data(0);
+    //    AD_A_result[1] = AD_A_generate_data(1);
+    //    AD_A_result[2] = AD_A_generate_data(2);
+    //    AD_A_result[3] = AD_A_generate_data(3);
 
-//    AD_B_result[0] = AD_B_generate_data(0);
-//    AD_B_result[1] = AD_B_generate_data(1);
-//    AD_B_result[2] = AD_B_generate_data(2);
-//    AD_B_result[3] = AD_B_generate_data(3);
+    //    AD_B_result[0] = AD_B_generate_data(0);
+    //    AD_B_result[1] = AD_B_generate_data(1);
+    //    AD_B_result[2] = AD_B_generate_data(2);
+    //    AD_B_result[3] = AD_B_generate_data(3);
 }
 
 void report_curstate(char *report)

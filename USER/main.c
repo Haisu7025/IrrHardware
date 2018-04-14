@@ -255,12 +255,14 @@ int main(void)
 
 				if (input_buffer[2] == 80)
 				{
-					if(input_buffer[3] == 80){
-							//if '00' is inserted at the beginning
-							len --;
-							for (t=0;t < len;t++){
-									input_buffer[t] = input_buffer[t + 1];
-							}
+					if (input_buffer[3] == 80)
+					{
+						//if '00' is inserted at the beginning
+						len--;
+						for (t = 0; t < len; t++)
+						{
+							input_buffer[t] = input_buffer[t + 1];
+						}
 					}
 					if (!check_sign(input_buffer, 6))
 					{
@@ -271,6 +273,11 @@ int main(void)
 					break;
 				}
 			}
+		}
+		if (module_index < 0)
+		{
+			//若从循环跳出后仍然没有收到正确id，则重启
+			SoftReset();
 		}
 	}
 
@@ -286,26 +293,26 @@ int main(void)
 	//=============================================
 
 	//===================计时器初始化==============
-	TIM3_Int_Init(10000, 7199);	//10Khz的计数频率，计数到5000为500ms
-	
+	TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
+
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
 	{
 		USART_RX_BUF[t] = 0;
 	}
-	
+
 	//进入轮询，LED快速闪烁
-	
+
 	//===================轮询接收===================
 	while (1)
 	{
 		LED(1);
 		delay_ms(100);
 		LED(0);
-		
+
 		//DEBUG USE: usart record long buffer.
 		//usart_record_p=0;
-				
+
 		if (USART_RX_STA & 0x8000)
 		{
 			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度

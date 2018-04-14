@@ -181,9 +181,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>124</LineNumber>
+          <LineNumber>125</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221672</Address>
+          <Address>134221682</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -192,7 +192,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>\vmware-host\Shared Folders\shared\project\USER\data\data.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\USART\data/data.c\124</Expression>
+          <Expression></Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>
@@ -306,42 +306,42 @@
         <Ww>
           <count>0</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_A</ItemText>
+          <ItemText>debug_A,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_B</ItemText>
+          <ItemText>debug_B,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>2</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_C</ItemText>
+          <ItemText>debug_C,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>3</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_D</ItemText>
+          <ItemText>debug_D,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>4</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_1</ItemText>
+          <ItemText>debug_1,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>5</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_2</ItemText>
+          <ItemText>debug_2,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>6</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_3</ItemText>
+          <ItemText>debug_3,0x0A</ItemText>
         </Ww>
         <Ww>
           <count>7</count>
           <WinNumber>2</WinNumber>
-          <ItemText>debug_4</ItemText>
+          <ItemText>debug_4,0x0A</ItemText>
         </Ww>
       </WatchWindow2>
       <Tracepoint>

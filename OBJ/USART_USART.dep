@@ -165,7 +165,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (battery\GUA_ADC1.h)(0x5AC770FC)
 I (battery\GUA_Battery_Check.h)(0x5AC770FE)
-F (.\data\data.c)(0x5AD0B299)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED-I "\\vmware-host\Shared Folders\shared\project\USER\RTE"-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\data.o --omf_browse ..\obj\data.crf --depend ..\obj\data.d)
+F (.\data\data.c)(0x5AD0BCE5)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED-I "\\vmware-host\Shared Folders\shared\project\USER\RTE"-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\data.o --omf_browse ..\obj\data.crf --depend ..\obj\data.d)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
