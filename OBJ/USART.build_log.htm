@@ -21,40 +21,38 @@ Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-\\vmware-host\Shared Folders\shared\project\USER\USART.uvprojx
+Z:\shared\project\USER\USART.uvprojx
 Project File Date:  04/13/2018
 
 <h2>Output:</h2>
 Build target 'USART'
-compiling data.c...
-data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
-  void alarm();
-data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
-  void get_sensor_data();
-data\data.c(44): warning:  #1166-D: returning pointer to local variable
-      return rt;
-data\data.c(75): warning:  #68-D: integer conversion resulted in a change of sign
-          ws.Volt_state = -1;
-data\data.c(83): warning:  #68-D: integer conversion resulted in a change of sign
-          ws.Humi_state = -1;
-data\data.c(91): warning:  #68-D: integer conversion resulted in a change of sign
-          ws.Pres_state = -1;
-data\data.c(101): warning:  #550-D: variable "ad_result1" was set but never used
-                u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(101): warning:  #550-D: variable "ad_result2" was set but never used
-                u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(101): warning:  #550-D: variable "ad_result3" was set but never used
-                u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c(101): warning:  #550-D: variable "ad_result4" was set but never used
-                u8 ad_temp=0,ad_result,ad_result1,ad_result2,ad_result3,ad_result4;
-data\data.c: 10 warnings, 0 errors
+compiling SIM.c...
+SIM\SIM.h(8): warning:  #1295-D: Deprecated declaration module_restart - give arg types
+  void module_restart();
+SIM\SIM.h(9): warning:  #1295-D: Deprecated declaration modify_cmnet - give arg types
+  void modify_cmnet();
+SIM\SIM.h(10): warning:  #1295-D: Deprecated declaration save_modify - give arg types
+  void save_modify();
+SIM\SIM.h(11): warning:  #1295-D: Deprecated declaration SIM_module_init - give arg types
+  void SIM_module_init();
+SIM\SIM.h(12): warning:  #1295-D: Deprecated declaration enter_com_mode - give arg types
+  void enter_com_mode();
+SIM\SIM.h(13): warning:  #1295-D: Deprecated declaration enter_configuration_mode - give arg types
+  void enter_configuration_mode();
+..\SYSTEM\usart\usart.h(44): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
+  void UART_sendWelcome();
+SIM\SIM.c(36): warning:  #177-D: variable "target" was declared but never referenced
+                char target;
+SIM\SIM.c(150): warning:  #1-D: last line of file ends without a newline
+  }
+SIM\SIM.c: 9 warnings, 0 errors
 linking...
-Program Size: Code=20164 RO-data=396 RW-data=208 ZI-data=1832  
+Program Size: Code=20324 RO-data=396 RW-data=216 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\USART.axf" - 0 Error(s), 10 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  \\vmware-host\Shared Folders\shared\project\USER\RTE
+  Z:\shared\project\USER\RTE
   C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0
 
 <h2>Collection of Component Files used:</h2>

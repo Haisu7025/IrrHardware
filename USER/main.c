@@ -221,9 +221,14 @@ int main(void)
 
 	unsigned char i, t;
 	char regist_success_flag = 0;
+	
 	u16 tmp_check_time;
 	u16 len, len_r = 0;
-
+	
+	
+//usart_record_p=0;
+	
+	
 	//===================初始化配置===================
 	system_init();
 	//================================================
@@ -344,12 +349,14 @@ int main(void)
 				//控制指令
 				operation = input_buffer[2];
 				control_EMV(operation);
+				USART_RX_STA = 0;
 				break;
 			case 1:
 				//立即上报
 				generate_report();
 				delay_ms(1000);
 				generate_status();
+				USART_RX_STA = 0;
 				break;
 			case 2:
 				//反馈信息
@@ -365,6 +372,7 @@ int main(void)
 
 					break;
 				}
+				USART_RX_STA = 0;
 				break;
 			case 3:
 				//系统设置
@@ -407,6 +415,7 @@ int main(void)
 
 					// 	break;
 				}
+				USART_RX_STA = 0;
 				break;
 			case 4:
 				//修改服务器IP、端口
@@ -427,10 +436,12 @@ int main(void)
 				ip_str[8] = '\"';
 
 				modify_SIM_server(ip_str, 14, port);
+				USART_RX_STA = 0;
 				break;
 			case 7:
 				//自动控制
 				auto_control_flag = input_msg_subtype;
+				USART_RX_STA = 0;
 				break;
 			case 8:
 				//固件升级
@@ -458,7 +469,8 @@ void cycle_check()
 	cur.Humi2 = ADa_result[1];
 	cur.Humi3 = ADa_result[2];
 	cur.Humi4 = ADa_result[3];
-	cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4 cur.Volt_cur = ADb_result[0];
+	cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4;
+	cur.Volt_cur = ADb_result[0];
 	cur.Pres_cur = ADb_result[1];
 
 	//自动控制

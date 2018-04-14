@@ -17,7 +17,7 @@ void SIM_module_init(){
 		delay_ms(500);
 		UART_SendBytes("AT+HEARTTM=30",13, 0);
 		delay_ms(500);
-		UART_SendBytes("AT+SOCKA=\"TCP\",\"thudbb.com\",2317",32, 0);
+		UART_SendBytes("AT+SOCKA=\"TCP\",\"101.5.217.98\",2317",34, 0);
 		delay_ms(500);
 		UART_SendBytes("AT+SOCKASL=\"long\"",17, 0);
 		delay_ms(500);
