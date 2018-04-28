@@ -152,6 +152,30 @@ void generate_warning(char warncode)
 	warn_ignore_flag = 1;
 }
 
+void generate_ack(char if_succeed, u16 last_package_index)
+{
+	char header[5];
+	char last_package_index_bytes[2];
+	char package[8];
+
+	output_package_index++;
+
+	if (if_succeed)
+	{
+		generate_header(32, header);
+	}
+	else
+	{
+		generate_header(47, header);
+	}
+	last_package_index[0] = last_package_index / 256;
+	last_package_index[1] = last_package_index % 256;
+
+	sign_message(package, 8);
+
+	UART_SendBytes(package, 10, 1);
+}
+
 void heartbeat_report_control()
 {
 	unsigned char heartbeat[6];
@@ -221,14 +245,12 @@ int main(void)
 
 	unsigned char i, t;
 	char regist_success_flag = 0;
-	
+
 	u16 tmp_check_time;
 	u16 len, len_r = 0;
-	
-	
-//usart_record_p=0;
-	
-	
+
+	//usart_record_p=0;
+
 	//===================初始化配置===================
 	system_init();
 	//================================================
@@ -334,6 +356,7 @@ int main(void)
 			if (!check_sign(input_buffer, len))
 			{
 				USART_RX_STA = 0;
+				generate_ack(0, 0);
 				continue;
 			}
 			//
@@ -350,6 +373,7 @@ int main(void)
 				operation = input_buffer[2];
 				control_EMV(operation);
 				USART_RX_STA = 0;
+				generate_ack(1, input_package_index);
 				break;
 			case 1:
 				//立即上报
