@@ -7,7 +7,7 @@
 keeper kp = {0, 100, 0, 100, 0, 100};
 curr cur = {20, 20, 20, 20, 20, 20, 20, 20};
 warnstate ws = {0, 0, 0};
-timing tim = {10, 20, 5};
+timing tim = {100, 200, 50};
 
 char debug_a_c1, debug_a_c2, debug_a_c3, debug_a_c4;
 char debug_b_c1, debug_b_c2, debug_b_c3, debug_b_c4;

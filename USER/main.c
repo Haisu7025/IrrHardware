@@ -168,8 +168,8 @@ void generate_ack(char if_succeed, u16 last_package_index)
 	{
 		generate_header(47, header);
 	}
-	last_package_index[0] = last_package_index / 256;
-	last_package_index[1] = last_package_index % 256;
+	last_package_index_bytes[0] = last_package_index / 256;
+	last_package_index_bytes[1] = last_package_index % 256;
 
 	sign_message(package, 8);
 

@@ -3,7 +3,7 @@
 #include "sys.h"
 
 void modify_heartbeat_time(u16 time);
-void modify_heartbeat_content(char* content);
+void modify_heartbeat_content(char *content);
 void modify_SIM_server(char *ip_address, u16 ip_len, u16 port);
 void module_restart();
 void modify_cmnet();
