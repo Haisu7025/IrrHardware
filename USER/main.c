@@ -73,7 +73,7 @@ void generate_regist()
 {
 	char header[5];
 	char STM_ID[12];
-	char package[18];
+	unsigned char package[18];
 
 	output_package_index++;
 
@@ -349,8 +349,10 @@ int main(void)
 		USART_RX_BUF[t] = 0;
 	}
 
-	//进入轮询，LED快速闪烁
+	//注册后直接进入待机模式
+	power_save_mode();
 
+	//进入轮询，LED快速闪烁
 	//===================轮询接收===================
 	while (1)
 	{
@@ -376,6 +378,10 @@ int main(void)
 			{
 				USART_RX_STA = 0;
 				generate_ack(0, 0);
+
+				//收到无效数据，继续待机
+				power_save_mode();
+
 				continue;
 			}
 			//
@@ -492,6 +498,10 @@ int main(void)
 				//IAP未解决
 				break;
 			}
+
+			//响应完成后，继续进入待机模式
+			power_save_mode();
+
 			continue;
 		}
 	}
@@ -602,4 +612,3 @@ void cycle_check()
 	}
 }
 
-//检测周期

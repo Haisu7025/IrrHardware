@@ -41,7 +41,7 @@ void uart_init(u32 bound);
 	
 void UART_SendByte(char c);
 void UART_SendBytes(char* c, u16 n, char target);
-void UART_sendWelcome();
+void UART_sendWelcome(void);
 
 #endif
 
