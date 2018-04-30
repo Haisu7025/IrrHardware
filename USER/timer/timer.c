@@ -32,7 +32,7 @@ void TIM3_Int_Init(u16 arr, u16 psc)
 	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1;		//设置时钟分割:TDTS = Tck_tim
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //TIM向上计数模式
 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);				//根据指定的参数初始化TIMx的时间基数单位
-	
+
 	TIM_ITConfig(TIM3, TIM_IT_Update, ENABLE); //使能指定的TIM3中断,允许更新中断
 
 	//中断优先级NVIC设置
@@ -45,9 +45,30 @@ void TIM3_Int_Init(u16 arr, u16 psc)
 	TIM_Cmd(TIM3, ENABLE); //使能TIMx
 }
 
+void TIM3_IRQHandler(void) //TIM3中断
+{
+	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)
+	//检查TIM3更新中断发生与否
+	{
+		// TIM_ClearITPendingBit(TIM3, TIM_IT_Update); //清除TIMx更新中断标志
+		// //中断程序
+		// check_flag++;
+		// report_flag++;
 
+		// if (check_flag == tim.check_interval)
+		// {
+		// 	//printf("%ds!!\n",tim.check_interval);
+		// 	cycle_check();
+		// 	check_flag = 0;
+		// }
 
-
-
+		// if (report_flag == tim.report_interval)
+		// {
+		// 	//printf("%ds!!\n",tim.report_interval);
+		// 	generate_report();
+		// 	report_flag = 0;
+		// }
+	}
+}
 
 //定时器3中断服务程序

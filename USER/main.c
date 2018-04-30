@@ -212,8 +212,27 @@ void system_init()
 	PCF8591a_Init();
 	PCF8591b_Init();
 	EMV_init();
-	GUA_Battery_Check_Init();
+	//GUA_Battery_Check_Init();
 }
+
+void power_save_mode()
+{
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE); //使能时钟
+	PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
+}
+
+void wakeup_TIM_reInit()
+{
+	//usart
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE); //使能USART1，GPIOA时钟
+	//PCF8591(AD)
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
+	//EMV controller
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //使能PB端口时钟
+														  //
+}
+
+void cycle_check();
 
 int main(void)
 {
@@ -322,7 +341,7 @@ int main(void)
 	//=============================================
 
 	//===================计时器初始化==============
-	TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
+	//TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
 
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
@@ -377,9 +396,10 @@ int main(void)
 				break;
 			case 1:
 				//立即上报
+				cycle_check();
 				generate_report();
 				delay_ms(1000);
-				generate_status();
+				//generate_status();
 				USART_RX_STA = 0;
 				break;
 			case 2:
@@ -573,8 +593,8 @@ void cycle_check()
 	}
 
 	//获取电池状态
-	nGUA_Battery_Check_Value = GUA_Battery_Check_Read();
-	cur.Volt_cur = nGUA_Battery_Check_Value * 3.3 / 4096;
+	//nGUA_Battery_Check_Value = GUA_Battery_Check_Read();
+	//cur.Volt_cur = nGUA_Battery_Check_Value * 3.3 / 4096;
 
 	if (0) //检测阀门是否异常
 	{
@@ -582,29 +602,4 @@ void cycle_check()
 	}
 }
 
-void TIM3_IRQHandler(void) //TIM3中断
-{
-	if (TIM_GetITStatus(TIM3, TIM_IT_Update) != RESET)
-	//检查TIM3更新中断发生与否
-	{
-		TIM_ClearITPendingBit(TIM3, TIM_IT_Update); //清除TIMx更新中断标志
-		//中断程序
-		check_flag++;
-		report_flag++;
-
-		if (check_flag == tim.check_interval)
-		{
-			//printf("%ds!!\n",tim.check_interval);
-			cycle_check();
-			check_flag = 0;
-		}
-
-		if (report_flag == tim.report_interval)
-		{
-			//printf("%ds!!\n",tim.report_interval);
-			generate_report();
-			report_flag = 0;
-		}
-	}
-}
 //检测周期
