@@ -61,10 +61,10 @@ void set_keeper(char tl, char th, char hl, char hh, u16 pl, u16 ph);
 void set_timing(u16 report_interval, u16 heartbeat_interval, u16 check_interval);
 
 //检测是否报警
-void alarm();
+void alarm(void);
 
 //获取传感器数据
-void get_sensor_data();
+void get_sensor_data(void);
 
 //四通道数模转换数据统一获取
 void FourChannelADRead(char AD_A_result[], char AD_B_result[]);

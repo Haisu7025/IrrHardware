@@ -27,40 +27,8 @@ Project File Date:  04/13/2018
 <h2>Output:</h2>
 Build target 'USART'
 compiling main.c...
-..\SYSTEM\usart\usart.h(44): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
-  void UART_sendWelcome();
-.\data\data.h(64): warning:  #1295-D: Deprecated declaration alarm - give arg types
-  void alarm();
-.\data\data.h(67): warning:  #1295-D: Deprecated declaration get_sensor_data - give arg types
-  void get_sensor_data();
-.\SIM\SIM.h(8): warning:  #1295-D: Deprecated declaration module_restart - give arg types
-  void module_restart();
-.\SIM\SIM.h(9): warning:  #1295-D: Deprecated declaration modify_cmnet - give arg types
-  void modify_cmnet();
-.\SIM\SIM.h(10): warning:  #1295-D: Deprecated declaration save_modify - give arg types
-  void save_modify();
-.\SIM\SIM.h(11): warning:  #1295-D: Deprecated declaration SIM_module_init - give arg types
-  void SIM_module_init();
-.\SIM\SIM.h(12): warning:  #1295-D: Deprecated declaration enter_com_mode - give arg types
-  void enter_com_mode();
-.\SIM\SIM.h(13): warning:  #1295-D: Deprecated declaration enter_configuration_mode - give arg types
-  void enter_configuration_mode();
-.\EMV\EMV.h(9): warning:  #1295-D: Deprecated declaration EMV_init - give arg types
-  void EMV_init();
-.\EMV\EMV.h(10): warning:  #1295-D: Deprecated declaration EMV_open - give arg types
-  void EMV_open();
-.\EMV\EMV.h(11): warning:  #1295-D: Deprecated declaration EMV_close - give arg types
-  void EMV_close();
-.\EMV\EMV.h(13): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\battery\GUA_Battery_Check.h(41): warning:  #1-D: last line of file ends without a newline
-  #endif
-.\LED\LED.h(5): warning:  #1295-D: Deprecated declaration LED_GPIO_init - give arg types
-  void LED_GPIO_init();
-.\LED\LED.h(8): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c(86): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        sign_message(package, 18);
+main.c(88): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
+        UART_SendBytes(package, 18, 1);
 main.c(105): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
         sign_message(package, 15);
 main.c(130): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
@@ -75,41 +43,71 @@ main.c(158): warning:  #550-D: variable "last_package_index_bytes" was set but n
         char last_package_index_bytes[2];
 main.c(189): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
         modify_heartbeat_content(heartbeat);
-main.c(306): warning:  #186-D: pointless comparison of unsigned integer with zero
+main.c(235): warning:  #1295-D: Deprecated declaration cycle_check - give arg types
+  void cycle_check();
+main.c(325): warning:  #186-D: pointless comparison of unsigned integer with zero
                 if (module_index < 0)
-main.c(319): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(338): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
         sign_message(hb_content, 6);
-main.c(221): warning:  #177-D: variable "output_buffer" was declared but never referenced
+main.c(240): warning:  #177-D: variable "output_buffer" was declared but never referenced
         char output_buffer[200];
-main.c(230): warning:  #177-D: variable "port_str" was declared but never referenced
+main.c(249): warning:  #177-D: variable "port_str" was declared but never referenced
         char port_str[5];
-main.c(232): warning:  #177-D: variable "input_package_index_high" was declared but never referenced
+main.c(251): warning:  #177-D: variable "input_package_index_high" was declared but never referenced
         char input_package_index_high;
-main.c(233): warning:  #177-D: variable "input_package_index_low" was declared but never referenced
+main.c(252): warning:  #177-D: variable "input_package_index_low" was declared but never referenced
         char input_package_index_low;
-main.c(234): warning:  #177-D: variable "output_package_index_high" was declared but never referenced
+main.c(253): warning:  #177-D: variable "output_package_index_high" was declared but never referenced
         char output_package_index_high;
-main.c(235): warning:  #177-D: variable "output_package_index_low" was declared but never referenced
+main.c(254): warning:  #177-D: variable "output_package_index_low" was declared but never referenced
         char output_package_index_low;
-main.c(237): warning:  #177-D: variable "module_index_high" was declared but never referenced
+main.c(256): warning:  #177-D: variable "module_index_high" was declared but never referenced
         char module_index_high;
-main.c(238): warning:  #177-D: variable "module_index_low" was declared but never referenced
+main.c(257): warning:  #177-D: variable "module_index_low" was declared but never referenced
         char module_index_low;
-main.c(240): warning:  #177-D: variable "checksum" was declared but never referenced
+main.c(259): warning:  #177-D: variable "checksum" was declared but never referenced
         char checksum;
-main.c(243): warning:  #177-D: variable "STM_ID" was declared but never referenced
+main.c(262): warning:  #177-D: variable "STM_ID" was declared but never referenced
         char STM_ID[12];
-main.c(247): warning:  #177-D: variable "regist_success_flag" was declared but never referenced
+main.c(266): warning:  #177-D: variable "regist_success_flag" was declared but never referenced
         char regist_success_flag = 0;
-main.c(250): warning:  #177-D: variable "len_r" was declared but never referenced
+main.c(269): warning:  #177-D: variable "len_r" was declared but never referenced
         u16 len, len_r = 0;
-main.c(610): warning:  #1-D: last line of file ends without a newline
-  //检测周�?                ^
-main.c: 39 warnings, 0 errors
+main.c: 23 warnings, 0 errors
+compiling GUA_Battery_Check.c...
+battery\GUA_ADC1.h(41): warning:  #1-D: last line of file ends without a newline
+  #endif
+battery\GUA_Battery_Check.c(51): warning:  #1-D: last line of file ends without a newline
+  }
+battery\GUA_Battery_Check.c: 2 warnings, 0 errors
+compiling data.c...
+data\data.c(46): warning:  #1166-D: returning pointer to local variable
+      return rt;
+data\data.c(77): warning:  #68-D: integer conversion resulted in a change of sign
+          ws.Volt_state = -1;
+data\data.c(85): warning:  #68-D: integer conversion resulted in a change of sign
+          ws.Humi_state = -1;
+data\data.c(93): warning:  #68-D: integer conversion resulted in a change of sign
+          ws.Pres_state = -1;
+data\data.c: 4 warnings, 0 errors
+compiling EMV.c...
+EMV\EMV.c(40): warning:  #1-D: last line of file ends without a newline
+  }
+EMV\EMV.c: 1 warning, 0 errors
+compiling SIM.c...
+SIM\SIM.c(41): warning:  #177-D: variable "target" was declared but never referenced
+        char target;
+SIM\SIM.c: 1 warning, 0 errors
+compiling timer.c...
+compiling led.c...
+LED\led.c(23): warning:  #1-D: last line of file ends without a newline
+  }
+LED\led.c: 1 warning, 0 errors
+compiling usart.c...
 linking...
-Program Size: Code=20532 RO-data=396 RW-data=216 ZI-data=1832  
+Program Size: Code=17918 RO-data=394 RW-data=216 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\USART.axf" - 0 Error(s), 39 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 32 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   \\vmware-host\Shared Folders\shared\project\USER\RTE
