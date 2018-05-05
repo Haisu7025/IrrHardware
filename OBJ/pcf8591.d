@@ -2,7 +2,7 @@
 ..\obj\pcf8591.o: PCF8591\PCF8591.h
 ..\obj\pcf8591.o: ..\USER\stm32f10x.h
 ..\obj\pcf8591.o: ..\CORE\core_cm3.h
-..\obj\pcf8591.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\pcf8591.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\pcf8591.o: ..\USER\system_stm32f10x.h
 ..\obj\pcf8591.o: ..\USER\stm32f10x_conf.h
 ..\obj\pcf8591.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

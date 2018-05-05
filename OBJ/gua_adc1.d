@@ -1,7 +1,7 @@
 ..\obj\gua_adc1.o: battery\GUA_ADC1.c
 ..\obj\gua_adc1.o: ..\USER\stm32f10x.h
 ..\obj\gua_adc1.o: ..\CORE\core_cm3.h
-..\obj\gua_adc1.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gua_adc1.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gua_adc1.o: ..\USER\system_stm32f10x.h
 ..\obj\gua_adc1.o: ..\USER\stm32f10x_conf.h
 ..\obj\gua_adc1.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

@@ -1,7 +1,7 @@
 ..\obj\gua_battery_check.o: battery\GUA_Battery_Check.c
 ..\obj\gua_battery_check.o: ..\USER\stm32f10x.h
 ..\obj\gua_battery_check.o: ..\CORE\core_cm3.h
-..\obj\gua_battery_check.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\gua_battery_check.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\gua_battery_check.o: ..\USER\system_stm32f10x.h
 ..\obj\gua_battery_check.o: ..\USER\stm32f10x_conf.h
 ..\obj\gua_battery_check.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

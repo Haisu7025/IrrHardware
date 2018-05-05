@@ -3,7 +3,7 @@
 ..\obj\sim.o: ..\SYSTEM\sys\sys.h
 ..\obj\sim.o: ..\USER\stm32f10x.h
 ..\obj\sim.o: ..\CORE\core_cm3.h
-..\obj\sim.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\sim.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\sim.o: ..\USER\system_stm32f10x.h
 ..\obj\sim.o: ..\USER\stm32f10x_conf.h
 ..\obj\sim.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h
@@ -30,8 +30,8 @@
 ..\obj\sim.o: ..\STM32F10x_FWLib\inc\stm32f10x_usart.h
 ..\obj\sim.o: ..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\sim.o: ..\STM32F10x_FWLib\inc\misc.h
-..\obj\sim.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
-..\obj\sim.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\sim.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\sim.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\sim.o: ..\SYSTEM\usart\usart.h
-..\obj\sim.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\sim.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 ..\obj\sim.o: ..\SYSTEM\delay\delay.h

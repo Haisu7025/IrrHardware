@@ -16,7 +16,7 @@ void SIM_module_init()
 	delay_ms(500);
 	UART_SendBytes("AT+HEARTDT=\"0000000000FFFE0AEF\"", 31, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+HEARTTM=30", 13, 0);
+	UART_SendBytes("AT+HEARTTM=60", 13, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+SOCKA=\"TCP\",\"123.206.21.240\",2317", 36, 0);
 	delay_ms(500);
@@ -25,8 +25,6 @@ void SIM_module_init()
 	UART_SendBytes("AT+UATEN=\"on\"", 13, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+CMDPW=\"irgt\"", 15, 0);
-	delay_ms(500);
-	UART_SendBytes("AT+SLEEPTIM=10", 14, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+S", 4, 0);
 }

@@ -1,10 +1,10 @@
 ..\obj\md5.o: verifier\md5.c
-..\obj\md5.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\md5.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\md5.o: verifier\md5.h
 ..\obj\md5.o: ..\SYSTEM\sys\sys.h
 ..\obj\md5.o: ..\USER\stm32f10x.h
 ..\obj\md5.o: ..\CORE\core_cm3.h
-..\obj\md5.o: C:\developer\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\md5.o: E:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\md5.o: ..\USER\system_stm32f10x.h
 ..\obj\md5.o: ..\USER\stm32f10x_conf.h
 ..\obj\md5.o: ..\STM32F10x_FWLib\inc\stm32f10x_adc.h

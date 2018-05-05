@@ -215,268 +215,6 @@ void system_init()
 	GUA_Battery_Check_Init();
 }
 
-int main(void)
-{
-	//variable established
-	char output_buffer[200];
-	unsigned char input_buffer[200];
-
-	char input_msg_type;
-	char input_msg_subtype;
-	char operation;
-	char ip[4];
-	char ip_str[9];
-	u16 port;
-	char port_str[5];
-
-	char input_package_index_high;
-	char input_package_index_low;
-	char output_package_index_high;
-	char output_package_index_low;
-
-	char module_index_high;
-	char module_index_low;
-
-	char checksum;
-	char ACK_state;
-
-	char STM_ID[12];
-	char hb_content[6];
-
-	unsigned char i, t;
-	char regist_success_flag = 0;
-
-	u16 tmp_check_time;
-	u16 len, len_r = 0;
-
-	//usart_record_p=0;
-
-	//===================初始化配置===================
-	system_init();
-	//================================================
-
-	//===================配置sim模块===================
-	SIM_module_init();
-	delay_ms(5000);
-	UART_SendBytes("AT+ENTM", 7, 0);
-	//	delay_ms(5000);
-	//================================================
-
-	//===================开机注册===================
-	while (module_index <= 0)
-	{
-		generate_regist();
-		USART_RX_STA = 0;
-		i = 0;
-		while (i < 10)
-		{
-			i++;
-			delay_ms(3000);
-			if (USART_RX_STA & 0x8000)
-			{
-				len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
-				for (t = 0; t < len; t++)
-				{
-					input_buffer[t] = USART_RX_BUF[t];
-				}
-				USART_RX_STA = 0;
-				//check success reply
-
-				if (input_buffer[2] == 80)
-				{
-					if (input_buffer[3] == 80)
-					{
-						//if '00' is inserted at the beginning
-						len--;
-						for (t = 0; t < len; t++)
-						{
-							input_buffer[t] = input_buffer[t + 1];
-						}
-					}
-					if (!check_sign(input_buffer, 6))
-					{
-						USART_RX_STA = 0;
-						continue;
-					}
-					module_index = input_buffer[3] * 256 + input_buffer[4];
-					break;
-				}
-			}
-		}
-		if (module_index < 0)
-		{
-			//若从循环跳出后仍然没有收到正确id，则重启
-			SoftReset();
-		}
-	}
-
-	//生成正确id对应的心跳包
-	hb_content[0] = 0x00;
-	hb_content[1] = 0x00;
-	hb_content[2] = 0x00;
-	hb_content[3] = module_index / 256;
-	hb_content[4] = module_index % 256;
-	sign_message(hb_content, 6);
-
-	modify_heartbeat_content(hb_content);
-	//=============================================
-
-	//===================计时器初始化==============
-	TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
-
-	USART_RX_STA = 0;
-	for (t = 0; t < 200; t++)
-	{
-		USART_RX_BUF[t] = 0;
-	}
-
-	//进入轮询，LED快速闪烁
-
-	//===================轮询接收===================
-	while (1)
-	{
-		LED(1);
-		delay_ms(100);
-		LED(0);
-
-		//DEBUG USE: usart record long buffer.
-		//usart_record_p=0;
-
-		if (USART_RX_STA & 0x8000)
-		{
-			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
-			for (t = 0; t < len; t++)
-			{
-				input_buffer[t] = USART_RX_BUF[t];
-				USART_RX_BUF[t] = 0;
-			}
-			USART_RX_STA = 0;
-
-			//checksum
-			if (!check_sign(input_buffer, len))
-			{
-				USART_RX_STA = 0;
-				generate_ack(0, 0);
-				continue;
-			}
-			//
-
-			//parse messsage
-			input_package_index = (((input_buffer[0] + 256) % 256) * 256 + (input_buffer[1] + 256) % 256);
-			input_msg_type = (input_buffer[2] >> 4);
-			input_msg_subtype = (input_buffer[2] % 16);
-
-			switch (input_msg_type)
-			{
-			case 0:
-				//控制指令
-				operation = input_buffer[2];
-				control_EMV(operation);
-				USART_RX_STA = 0;
-				generate_ack(1, input_package_index);
-				break;
-			case 1:
-				//立即上报
-				generate_report();
-				delay_ms(1000);
-				generate_status();
-				USART_RX_STA = 0;
-				break;
-			case 2:
-				//反馈信息
-				//暂定为只检测异常ACK
-				switch (ACK_state)
-				{
-				case 0:
-					//成功
-
-					break;
-				case 1:
-					//失败
-
-					break;
-				}
-				USART_RX_STA = 0;
-				break;
-			case 3:
-				//系统设置
-				switch (input_msg_subtype)
-				{
-				case 0:
-					//修改温湿度阈值
-					set_keeper(kp.Volt_low, kp.Volt_high,
-							   (input_buffer[5] + 256) % 256,
-							   (input_buffer[6] + 256) % 256,
-							   kp.pres_low, kp.pres_high);
-					break;
-				case 1:
-					//修改水压阈值
-					set_keeper(kp.Volt_low, kp.Volt_high,
-							   kp.Humi_low, kp.Humi_high,
-							   (input_buffer[5] + 256) % 256,
-							   (input_buffer[6] + 256) % 256);
-					break;
-				case 2:
-					//调整IP注册包时间间隔
-					tmp_check_time = ((input_buffer[5] + 256) % 256) * 256 + (input_buffer[6] + 256) % 256;
-					set_timing(tim.report_interval,
-							   tmp_check_time,
-							   tim.check_interval);
-					modify_heartbeat_time(tmp_check_time);
-					break;
-					// case 4:
-					// 	//调整普通上报包时间间隔
-					// 	set_timing(((input_buffer[5] + 256) % 256) * 256 * 10 + (input_buffer[6] + 256) * 10 % 256,
-					// 			   tim.heartbeat_interval,
-					// 			   tim.check_interval);
-
-					// 	break;
-					// case 8:
-					// 	//调整异常检测时间
-					// 	set_timing(tim.report_interval,
-					// 			   tim.heartbeat_interval,
-					// 			   ((input_buffer[5] + 256) % 256) * 256 + (input_buffer[6] + 256) % 256);
-
-					// 	break;
-				}
-				USART_RX_STA = 0;
-				break;
-			case 4:
-				//修改服务器IP、端口
-				ip[0] = (input_buffer[5] + 256) % 256;
-				ip[1] = (input_buffer[6] + 256) % 256;
-				ip[2] = (input_buffer[7] + 256) % 256;
-				ip[3] = (input_buffer[8] + 256) % 256;
-
-				port = (input_buffer[9] + 256) % 256 * 256 + (input_buffer[10] + 256) % 256;
-
-				//可能需要用到sim模块的AT指令
-				ip_str[0] = '\"';
-				ip_str[1] = ip[0];
-				ip_str[3] = ip[1];
-				ip_str[5] = ip[2];
-				ip_str[7] = ip[3];
-				ip_str[2] = ip_str[4] = ip_str[6] = '.';
-				ip_str[8] = '\"';
-
-				modify_SIM_server(ip_str, 14, port);
-				USART_RX_STA = 0;
-				break;
-			case 7:
-				//自动控制
-				auto_control_flag = input_msg_subtype;
-				USART_RX_STA = 0;
-				break;
-			case 8:
-				//固件升级
-				//IAP未解决
-				break;
-			}
-			continue;
-		}
-	}
-}
-
 void cycle_check()
 {
 	//获取传感器数据
@@ -581,6 +319,270 @@ void cycle_check()
 		generate_warning(246);
 	}
 }
+int main(void)
+{
+	//variable established
+	char output_buffer[200];
+	unsigned char input_buffer[200];
+
+	char input_msg_type;
+	char input_msg_subtype;
+	char operation;
+	char ip[4];
+	char ip_str[9];
+	u16 port;
+	char port_str[5];
+
+	char input_package_index_high;
+	char input_package_index_low;
+	char output_package_index_high;
+	char output_package_index_low;
+
+	char module_index_high;
+	char module_index_low;
+
+	char checksum;
+	char ACK_state;
+
+	char STM_ID[12];
+	char hb_content[6];
+
+	unsigned char i, t;
+	char regist_success_flag = 0;
+
+	u16 tmp_check_time;
+	u16 len, len_r = 0;
+
+	//usart_record_p=0;
+
+	//===================初始化配置===================
+	system_init();
+	//================================================
+
+	//===================配置sim模块===================
+	SIM_module_init();
+	delay_ms(5000);
+	UART_SendBytes("AT+ENTM", 7, 0);
+	//	delay_ms(5000);
+	//================================================
+
+	//===================开机注册===================
+	while (module_index <= 0)
+	{
+		generate_regist();
+		USART_RX_STA = 0;
+		i = 0;
+		while (i < 10)
+		{
+			i++;
+			delay_ms(3000);
+			if (USART_RX_STA & 0x8000)
+			{
+				len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
+				for (t = 0; t < len; t++)
+				{
+					input_buffer[t] = USART_RX_BUF[t];
+				}
+				USART_RX_STA = 0;
+				//check success reply
+				if (input_buffer[3] == 80)
+				{
+					//if '00' is redundant at the beginning
+					len--;
+					for (t = 0; t < len; t++)
+					{
+						input_buffer[t] = input_buffer[t + 1];
+					}
+				}
+				
+				if (input_buffer[2] == 80)
+				{
+					
+					if (!check_sign(input_buffer, 6))
+					{
+						USART_RX_STA = 0;
+						continue;
+					}
+					module_index = input_buffer[3] * 256 + input_buffer[4];
+					break;
+				}
+			}
+		}
+	}
+
+	//生成正确id对应的心跳包
+	hb_content[0] = 0x00;
+	hb_content[1] = 0x00;
+	hb_content[2] = 0x00;
+	hb_content[3] = module_index / 256;
+	hb_content[4] = module_index % 256;
+	sign_message(hb_content, 6);
+
+	modify_heartbeat_content(hb_content);
+	//=============================================
+
+	//===================计时器初始化==============
+	TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
+
+	USART_RX_STA = 0;
+	for (t = 0; t < 200; t++)
+	{
+		USART_RX_BUF[t] = 0;
+	}
+
+	//进入轮询，LED快速闪烁
+
+	//===================轮询接收===================
+	while (1)
+	{
+		//DEBUG USE: usart record long buffer.
+		//usart_record_p=0;
+
+		if (USART_RX_STA & 0x8000)
+		{
+			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
+			for (t = 0; t < len; t++)
+			{
+				input_buffer[t] = USART_RX_BUF[t];
+				USART_RX_BUF[t] = 0;
+			}
+			USART_RX_STA = 0;
+			
+			
+			//checksum
+			if (!check_sign(input_buffer, len))
+			{
+				len--;
+				for (t = 0; t < len; t++)
+				{
+					input_buffer[t] = input_buffer[t+1];
+				}
+				
+				if(!check_sign(input_buffer, len)){
+					USART_RX_STA = 0;
+					generate_ack(0, 0);
+					continue;
+				}
+			}
+			//
+
+			//parse messsage
+			input_package_index = (((input_buffer[0] + 256) % 256) * 256 + (input_buffer[1] + 256) % 256);
+			input_msg_type = (input_buffer[2] >> 4);
+			input_msg_subtype = (input_buffer[2] % 16);
+
+			switch (input_msg_type)
+			{
+			case 0:
+				//控制指令
+				operation = input_buffer[2];
+				control_EMV(operation);
+				USART_RX_STA = 0;
+				generate_ack(1, input_package_index);
+				break;
+			case 1:
+				//立即上报
+				cycle_check();
+				generate_report();
+				delay_ms(1000);
+				generate_status();
+				USART_RX_STA = 0;
+				break;
+			case 2:
+				//反馈信息
+				//暂定为只检测异常ACK
+				switch (ACK_state)
+				{
+				case 0:
+					//成功
+
+					break;
+				case 1:
+					//失败
+
+					break;
+				}
+				USART_RX_STA = 0;
+				break;
+			case 3:
+				//系统设置
+				switch (input_msg_subtype)
+				{
+				case 0:
+					//修改温湿度阈值
+					set_keeper(kp.Volt_low, kp.Volt_high,
+							   (input_buffer[5] + 256) % 256,
+							   (input_buffer[6] + 256) % 256,
+							   kp.pres_low, kp.pres_high);
+					break;
+				case 1:
+					//修改水压阈值
+					set_keeper(kp.Volt_low, kp.Volt_high,
+							   kp.Humi_low, kp.Humi_high,
+							   (input_buffer[5] + 256) % 256,
+							   (input_buffer[6] + 256) % 256);
+					break;
+				case 2:
+					//调整IP注册包时间间隔
+					tmp_check_time = ((input_buffer[5] + 256) % 256) * 256 + (input_buffer[6] + 256) % 256;
+					set_timing(tim.report_interval,
+							   tmp_check_time,
+							   tim.check_interval);
+					modify_heartbeat_time(tmp_check_time);
+					break;
+					// case 4:
+					// 	//调整普通上报包时间间隔
+					// 	set_timing(((input_buffer[5] + 256) % 256) * 256 * 10 + (input_buffer[6] + 256) * 10 % 256,
+					// 			   tim.heartbeat_interval,
+					// 			   tim.check_interval);
+
+					// 	break;
+					// case 8:
+					// 	//调整异常检测时间
+					// 	set_timing(tim.report_interval,
+					// 			   tim.heartbeat_interval,
+					// 			   ((input_buffer[5] + 256) % 256) * 256 + (input_buffer[6] + 256) % 256);
+
+					// 	break;
+				}
+				USART_RX_STA = 0;
+				break;
+			case 4:
+				//修改服务器IP、端口
+				ip[0] = (input_buffer[5] + 256) % 256;
+				ip[1] = (input_buffer[6] + 256) % 256;
+				ip[2] = (input_buffer[7] + 256) % 256;
+				ip[3] = (input_buffer[8] + 256) % 256;
+
+				port = (input_buffer[9] + 256) % 256 * 256 + (input_buffer[10] + 256) % 256;
+
+				//可能需要用到sim模块的AT指令
+				ip_str[0] = '\"';
+				ip_str[1] = ip[0];
+				ip_str[3] = ip[1];
+				ip_str[5] = ip[2];
+				ip_str[7] = ip[3];
+				ip_str[2] = ip_str[4] = ip_str[6] = '.';
+				ip_str[8] = '\"';
+
+				modify_SIM_server(ip_str, 14, port);
+				USART_RX_STA = 0;
+				break;
+			case 7:
+				//自动控制
+				auto_control_flag = input_msg_subtype;
+				USART_RX_STA = 0;
+				break;
+			case 8:
+				//固件升级
+				//IAP未解决
+				break;
+			}
+			continue;
+		}
+	}
+}
+
 
 void TIM3_IRQHandler(void) //TIM3中断
 {
@@ -588,23 +590,23 @@ void TIM3_IRQHandler(void) //TIM3中断
 	//检查TIM3更新中断发生与否
 	{
 		TIM_ClearITPendingBit(TIM3, TIM_IT_Update); //清除TIMx更新中断标志
-		//中断程序
-		check_flag++;
-		report_flag++;
+//		//中断程序
+//		check_flag++;
+//		report_flag++;
 
-		if (check_flag == tim.check_interval)
-		{
-			//printf("%ds!!\n",tim.check_interval);
-			cycle_check();
-			check_flag = 0;
-		}
+//		if (check_flag == tim.check_interval)
+//		{
+//			//printf("%ds!!\n",tim.check_interval);
+//			cycle_check();
+//			check_flag = 0;
+//		}
 
-		if (report_flag == tim.report_interval)
-		{
-			//printf("%ds!!\n",tim.report_interval);
-			generate_report();
-			report_flag = 0;
-		}
+//		if (report_flag == tim.report_interval)
+//		{
+//			//printf("%ds!!\n",tim.report_interval);
+//			generate_report();
+//			report_flag = 0;
+//		}
 	}
 }
 //检测周期
