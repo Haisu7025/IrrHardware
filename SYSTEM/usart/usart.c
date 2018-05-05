@@ -206,13 +206,13 @@ void USART1_IRQHandler(void) //串口1中断服务程序
 }
 
 
-void UART_SendByte(char c){
+void UART_SendByte(unsigned char c){
 		USART_SendData(USART1, c);
 		while(USART_GetFlagStatus(USART1,USART_FLAG_TC)!=SET);//等待发送结束
 		delay_us(30);
 }
 
-void UART_SendBytes(char* c, u16 n, char target){
+void UART_SendBytes(unsigned char* c, u16 n, char target){
 	u16 i=0;
 	for(i=0;i<n;i++){
 		USART_SendData(USART1, *(c+i));
@@ -233,7 +233,7 @@ void UART_SendBytes(char* c, u16 n, char target){
 }
 
 void UART_sendWelcome(){
-		char str[]="System Start...\n";
+		unsigned char str[]="System Start...\n";
 		UART_SendBytes(str, sizeof(str),1);
 		USART_RX_STA=0;
 }

@@ -1,0 +1,54 @@
+#include "ps.h"
+#include "usart.h"
+#include "EMV.h"
+#include "PCF8591.h"
+
+void power_save_mode(void)
+{
+    EXTI_InitTypeDef EXTI_InitStructure;
+    NVIC_InitTypeDef NVIC_InitStructure;
+    GPIO_InitTypeDef GPIO_InitStructure;
+    //初始化KEY1-->GPIOE.0  上拉输入
+
+    USART_ITConfig(USART1, USART_IT_RXNE, DISABLE); //关闭串口接受中断
+
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
+    GPIO_Init(GPIOA, &GPIO_InitStructure);        //初始化GPIOE.0
+
+    //RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
+    GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource10);
+    EXTI_InitStructure.EXTI_Line = EXTI_Line10;
+    EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+    EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;
+    EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+    EXTI_Init(&EXTI_InitStructure); //根据EXTI_InitStruct中指定的参数初始化外设EXIT寄存器
+
+    NVIC_InitStructure.NVIC_IRQChannel = EXTI15_10_IRQn;         //使能按键WK_UP所在的外部中断通道
+    NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01; //抢占优先级2
+    NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;        //子优先级3
+
+    NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //使能外部中断通道
+    NVIC_Init(&NVIC_InitStructure);
+
+    RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE); //使能时钟
+    PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
+}
+
+void wakeup(void)
+{
+    SystemInit();
+    EXTI_DeInit();
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
+    uart_init(115200);                              //串口初始化为115200
+    PCF8591a_Init();
+    PCF8591b_Init();
+    EMV_init();
+}
+
+void EXTI15_10_IRQHandler(void)
+{
+    delay_ms(10);
+    wakeup();
+    EXTI_ClearITPendingBit(EXTI_Line10); //清除LINE0上的中断标志位
+}

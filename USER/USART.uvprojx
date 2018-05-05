@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;.\battery;.\data;.\EMV;.\PCF8591;.\PCF8591\iic;.\SIM;.\timer;.\verifier;.\LED</IncludePath>
+              <IncludePath>..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\HARDWARE\KEY;.\battery;.\data;.\EMV;.\PCF8591;.\PCF8591\iic;.\SIM;.\timer;.\verifier;.\LED;.\power_save</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -478,6 +478,11 @@
               <FileType>1</FileType>
               <FilePath>.\LED\led.c</FilePath>
             </File>
+            <File>
+              <FileName>ps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\power_save\ps.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -547,6 +552,16 @@
               <FileName>stm32f10x_adc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\STM32F10x_FWLib\src\stm32f10x_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_pwr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32F10x_FWLib\src\stm32f10x_pwr.c</FilePath>
             </File>
           </Files>
         </Group>

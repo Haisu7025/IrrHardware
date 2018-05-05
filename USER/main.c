@@ -10,6 +10,7 @@
 #include "Verify_Helper.h"
 #include "GUA_Battery_Check.h"
 #include "LED.h"
+#include "ps.h"
 
 //状态
 u32 report_flag;
@@ -92,7 +93,7 @@ void generate_report()
 {
 	char header[5];
 	char report[9];
-	char package[15];
+	unsigned char package[15];
 
 	output_package_index++;
 
@@ -110,7 +111,7 @@ void generate_report()
 void generate_status()
 {
 	char header[5];
-	char package[16];
+	unsigned char package[16];
 
 	output_package_index++;
 
@@ -136,7 +137,7 @@ void generate_warning(char warncode)
 {
 	char header[5];
 	char report[4];
-	char package[10];
+	unsigned char package[10];
 
 	output_package_index++;
 
@@ -156,7 +157,7 @@ void generate_ack(char if_succeed, u16 last_package_index)
 {
 	char header[5];
 	char last_package_index_bytes[2];
-	char package[8];
+	unsigned char package[8];
 
 	output_package_index++;
 
@@ -178,7 +179,7 @@ void generate_ack(char if_succeed, u16 last_package_index)
 
 void heartbeat_report_control()
 {
-	unsigned char heartbeat[6];
+	char heartbeat[6];
 	heartbeat[0] = '0';
 	heartbeat[1] = '0';
 	heartbeat[2] = '0';
@@ -215,29 +216,11 @@ void system_init()
 	//GUA_Battery_Check_Init();
 }
 
-void power_save_mode()
-{
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE); //使能时钟
-	PWR_EnterSTOPMode(PWR_Regulator_LowPower, PWR_STOPEntry_WFI);
-}
-
-void wakeup_TIM_reInit()
-{
-	//usart
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE); //使能USART1，GPIOA时钟
-	//PCF8591(AD)
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-	//EMV controller
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //使能PB端口时钟
-														  //
-}
-
-void cycle_check();
+void cycle_check(void);
 
 int main(void)
 {
 	//variable established
-	char output_buffer[200];
 	unsigned char input_buffer[200];
 
 	char input_msg_type;
@@ -322,7 +305,7 @@ int main(void)
 				}
 			}
 		}
-		if (module_index < 0)
+		if (module_index == 0)
 		{
 			//若从循环跳出后仍然没有收到正确id，则重启
 			SoftReset();
@@ -611,4 +594,3 @@ void cycle_check()
 		generate_warning(246);
 	}
 }
-

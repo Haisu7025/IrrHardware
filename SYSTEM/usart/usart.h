@@ -39,8 +39,8 @@ void uart_init(u32 bound);
 //extern u16 usart_record_p;
  
 	
-void UART_SendByte(char c);
-void UART_SendBytes(char* c, u16 n, char target);
+void UART_SendByte(unsigned char c);
+void UART_SendBytes(unsigned char* c, u16 n, char target);
 void UART_sendWelcome(void);
 
 #endif

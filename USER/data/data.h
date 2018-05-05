@@ -72,4 +72,7 @@ void FourChannelADRead(char AD_A_result[], char AD_B_result[]);
 //更新report数据
 void report_curstate(char *report);
 
+void report_warningstate(char *report);
+
 #endif
+
