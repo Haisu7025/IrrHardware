@@ -152,6 +152,20 @@ void generate_warning(char warncode)
 	warn_ignore_flag = 1;
 }
 
+void generate_id_ack()
+{
+	char header[5];
+	char package[6];
+	
+	output_package_index++;
+	
+	generate_header(80, header);
+	
+	sign_message(package, 6);
+	
+	UART_SendBytes(package, 6, 1);
+}
+
 void generate_ack(char if_succeed, u16 last_package_index)
 {
 	char header[5];
@@ -213,6 +227,7 @@ void system_init()
 	PCF8591b_Init();
 	EMV_init();
 	GUA_Battery_Check_Init();
+	LED_GPIO_init();
 }
 
 void cycle_check()
@@ -354,11 +369,13 @@ int main(void)
 	u16 len, len_r = 0;
 
 	//usart_record_p=0;
-
+	
 	//===================初始化配置===================
 	system_init();
 	//================================================
 
+	flash_LED1(5, 300);
+	
 	//===================配置sim模块===================
 	SIM_module_init();
 	delay_ms(5000);
@@ -368,14 +385,16 @@ int main(void)
 
 	//===================开机注册===================
 	while (module_index <= 0)
-	{
+	{	
+		flash_LED0(3, 300);
+		
 		generate_regist();
 		USART_RX_STA = 0;
 		i = 0;
 		while (i < 10)
 		{
 			i++;
-			delay_ms(3000);
+			delay_ms(500);
 			if (USART_RX_STA & 0x8000)
 			{
 				len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
@@ -422,24 +441,30 @@ int main(void)
 	//=============================================
 
 	//===================计时器初始化==============
-	TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
+	//TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
 
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
 	{
 		USART_RX_BUF[t] = 0;
 	}
-
+	
+	
 	//进入轮询，LED快速闪烁
 
+	//
+	generate_id_ack();
+	
 	//===================轮询接收===================
 	while (1)
 	{
+		flash_LED1(1, 200);
 		//DEBUG USE: usart record long buffer.
 		//usart_record_p=0;
 
 		if (USART_RX_STA & 0x8000)
 		{
+			flash_LED0(3, 100);
 			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
 			for (t = 0; t < len; t++)
 			{
