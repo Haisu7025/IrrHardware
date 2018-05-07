@@ -30,6 +30,8 @@ void SIM_module_init()
 	delay_ms(500);
 	UART_SendBytes("AT+SLEEPTIM=10", 14, 0);
 	delay_ms(500);
+	UART_SendBytes("AT+STMSG=\"\"", 11, 0);
+	delay_ms(500);
 	UART_SendBytes("AT+S", 4, 0);
 }
 
