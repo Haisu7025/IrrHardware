@@ -205,6 +205,9 @@ void USART1_IRQHandler(void) //串口1中断服务程序
 #endif
 }
 
+void UART_Get_data(){
+	
+}
 
 void UART_SendByte(char c){
 		USART_SendData(USART1, c);

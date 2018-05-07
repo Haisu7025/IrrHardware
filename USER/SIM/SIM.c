@@ -77,7 +77,7 @@ void modify_heartbeat_time(u16 time)
 	memcpy(mod_pack + 16, time_s, time_len);
 	UART_SendBytes(mod_pack, 16 + time_len, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+S", 4, 0);
+	UART_SendBytes("irgt#AT+S", 4, 0);
 	delay_ms(500);
 }
 
@@ -105,7 +105,7 @@ void modify_heartbeat_content(char *content)
 
 	UART_SendBytes(control_sig, 36, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+S", 4, 0);
+	UART_SendBytes("irgt#AT+S", 9, 0);
 	delay_ms(500);
 }
 

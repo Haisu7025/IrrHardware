@@ -69,10 +69,8 @@ main.c(149): warning:  #167-D: argument of type "char *" is incompatible with pa
         sign_message(package, 10);
 main.c(164): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
         sign_message(package, 6);
-main.c(188): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        sign_message(package, 8);
-main.c(172): warning:  #550-D: variable "last_package_index_bytes" was set but never used
-        char last_package_index_bytes[2];
+main.c(189): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+   sign_message(package, 8);
 main.c(203): warning:  #167-D: argument of type "unsigned char *" is incompatible with parameter of type "char *"
         modify_heartbeat_content(heartbeat);
 main.c(377): warning:  #223-D: function "flash_LED1" declared implicitly
@@ -109,27 +107,31 @@ main.c(369): warning:  #177-D: variable "len_r" was declared but never reference
         u16 len, len_r = 0;
 main.c(637): warning:  #1-D: last line of file ends without a newline
   //检测周�?                ^
-main.c: 41 warnings, 0 errors
-compiling led.c...
-LED\led.h(21): warning:  #1-D: last line of file ends without a newline
-  #endif
-LED\led.c(42): warning:  #223-D: function "delay_ms" declared implicitly
-                delay_ms(30);
-LED\led.c(46): warning:  #223-D: function "delay_ms" declared implicitly
-        delay_ms(delay);
-LED\led.c(53): warning:  #223-D: function "delay_ms" declared implicitly
-                delay_ms(30);
-LED\led.c(57): warning:  #223-D: function "delay_ms" declared implicitly
-        delay_ms(delay);
-LED\led.c(58): warning:  #1-D: last line of file ends without a newline
-  }
-LED\led.c: 6 warnings, 0 errors
+main.c: 40 warnings, 0 errors
+compiling SIM.c...
+SIM\SIM.h(8): warning:  #1295-D: Deprecated declaration module_restart - give arg types
+  void module_restart();
+SIM\SIM.h(9): warning:  #1295-D: Deprecated declaration modify_cmnet - give arg types
+  void modify_cmnet();
+SIM\SIM.h(10): warning:  #1295-D: Deprecated declaration save_modify - give arg types
+  void save_modify();
+SIM\SIM.h(11): warning:  #1295-D: Deprecated declaration SIM_module_init - give arg types
+  void SIM_module_init();
+SIM\SIM.h(12): warning:  #1295-D: Deprecated declaration enter_com_mode - give arg types
+  void enter_com_mode();
+SIM\SIM.h(13): warning:  #1295-D: Deprecated declaration enter_configuration_mode - give arg types
+  void enter_configuration_mode();
+..\SYSTEM\usart\usart.h(44): warning:  #1295-D: Deprecated declaration UART_sendWelcome - give arg types
+  void UART_sendWelcome();
+SIM\SIM.c(39): warning:  #177-D: variable "target" was declared but never referenced
+        char target;
+SIM\SIM.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=20552 RO-data=396 RW-data=216 ZI-data=1832  
+Program Size: Code=20564 RO-data=396 RW-data=216 ZI-data=1832  
 FromELF: creating hex file...
 After Build - User command #1: fromelf --m32combined --output=..\bin\outfile.s19 ..\OBJ\USART.axf
 After Build - User command #2: fromelf --bin -o ..\bin\outfile.bin ..\OBJ\USART.axf
-"..\OBJ\USART.axf" - 0 Error(s), 47 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 48 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   Z:\Keil\IrrHardware\USER\RTE

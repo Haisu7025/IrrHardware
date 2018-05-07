@@ -79,7 +79,7 @@ void generate_regist()
 
 	GetIDAdd_12byte(STM_ID);
 
-	generate_header(64, header);
+	generate_header(0x40, header);
 	memcpy(package, header, 5);
 	memcpy(package + 5, STM_ID, 12);
 
@@ -96,7 +96,7 @@ void generate_report()
 
 	output_package_index++;
 
-	generate_header(16, header);
+	generate_header(0x10, header);
 	report_curstate(report);
 
 	memcpy(package, header, 5);
@@ -154,50 +154,50 @@ void generate_warning(char warncode)
 
 void generate_id_ack()
 {
-	char header[5];
+//	char header[5];
 	char package[6];
 	
 	output_package_index++;
 	
-	generate_header(80, header);
+	generate_header(0x50, package);
 	
 	sign_message(package, 6);
 	
 	UART_SendBytes(package, 6, 1);
 }
-
 void generate_ack(char if_succeed, u16 last_package_index)
 {
-	char header[5];
-	char last_package_index_bytes[2];
-	char package[8];
+// char header[5];
+ char last_package_index_bytes[2];
+ char package[8];
 
-	output_package_index++;
+ output_package_index++;
 
-	if (if_succeed)
-	{
-		generate_header(32, header);
-	}
-	else
-	{
-		generate_header(47, header);
-	}
-	last_package_index_bytes[0] = last_package_index / 256;
-	last_package_index_bytes[1] = last_package_index % 256;
+ if (if_succeed)
+ {
+  generate_header(0x20, package);
+ }
+ else
+ {
+  generate_header(0x2F, package);
+ }
+ last_package_index_bytes[0] = last_package_index / 256;
+ last_package_index_bytes[1] = last_package_index % 256;
+ package[5] = last_package_index_bytes[0];
+ package[6] = last_package_index_bytes[1];
 
-	sign_message(package, 8);
+ sign_message(package, 8);
 
-	UART_SendBytes(package, 10, 1);
+ UART_SendBytes(package, 8, 1);
 }
-
 void heartbeat_report_control()
 {
 	unsigned char heartbeat[6];
 	heartbeat[0] = '0';
 	heartbeat[1] = '0';
 	heartbeat[2] = '0';
-	heartbeat[3] = module_index / 256;
-	heartbeat[4] = module_index % 256;
+	heartbeat[3] = (module_index & 0xFF00)>>16;
+	heartbeat[4] = module_index & 0x00FF;
 	sign_message(heartbeat, 6);
 
 	modify_heartbeat_content(heartbeat);
@@ -394,7 +394,7 @@ int main(void)
 		while (i < 10)
 		{
 			i++;
-			delay_ms(500);
+			delay_ms(1000);
 			if (USART_RX_STA & 0x8000)
 			{
 				len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度

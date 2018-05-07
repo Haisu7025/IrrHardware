@@ -3,7 +3,7 @@
 <title>Static Call Graph - [..\OBJ\USART.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image ..\OBJ\USART.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon May 07 21:04:15 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Mon May 07 22:44:41 2018
 <BR><P>
 <H3>Maximum Stack Usage =        876 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -321,8 +321,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycle_check
 </UL>
 
-<P><STRONG><a name="[6e]"></a>generate_id_ack</STRONG> (Thumb, 40 bytes, Stack size 24 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 572<LI>Call Chain = generate_id_ack &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
+<P><STRONG><a name="[6e]"></a>generate_id_ack</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 564<LI>Call Chain = generate_id_ack &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sign_message
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendBytes
@@ -331,8 +331,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[6f]"></a>generate_ack</STRONG> (Thumb, 92 bytes, Stack size 32 bytes, main.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 580<LI>Call Chain = generate_ack &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
+<P><STRONG><a name="[6f]"></a>generate_ack</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, main.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 572<LI>Call Chain = generate_ack &rArr; sign_message &rArr; MD5Final &rArr; MD5Update &rArr; MD5Transform &rArr; MD5Decode
 </UL>
 <BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sign_message
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendBytes
@@ -341,7 +341,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[70]"></a>heartbeat_report_control</STRONG> (Thumb, 50 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
+<P><STRONG><a name="[70]"></a>heartbeat_report_control</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, main.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;sign_message
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;modify_heartbeat_content
 </UL>
@@ -1098,6 +1098,8 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
 </UL>
+<P><STRONG><a name="[12b]"></a>UART_Get_data</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, usart.o(.text), UNUSED)
+
 <P><STRONG><a name="[c2]"></a>UART_SendByte</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, usart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_SendByte
 </UL>
@@ -1177,7 +1179,7 @@ Global Symbols
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12b]"></a>delay</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, delay.o(.text), UNUSED)
+<P><STRONG><a name="[12c]"></a>delay</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, delay.o(.text), UNUSED)
 
 <P><STRONG><a name="[3]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f10x_hd.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_hd.o(RESET)
@@ -1374,11 +1376,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
-<P><STRONG><a name="[12c]"></a>NVIC_SetVectorTable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[12d]"></a>NVIC_SetVectorTable</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
-<P><STRONG><a name="[12d]"></a>NVIC_SystemLPConfig</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[12e]"></a>NVIC_SystemLPConfig</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
-<P><STRONG><a name="[12e]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
+<P><STRONG><a name="[12f]"></a>SysTick_CLKSourceConfig</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, misc.o(.text), UNUSED)
 
 <P><STRONG><a name="[da]"></a>GPIO_DeInit</STRONG> (Thumb, 172 bytes, Stack size 8 bytes, stm32f10x_gpio.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
@@ -1403,7 +1405,7 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_init
 </UL>
 
-<P><STRONG><a name="[12f]"></a>GPIO_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[130]"></a>GPIO_StructInit</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[b9]"></a>GPIO_ReadInputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC2_Wait_Ack
@@ -1412,11 +1414,11 @@ Global Symbols
 <LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC1_Read_Byte
 </UL>
 
-<P><STRONG><a name="[130]"></a>GPIO_ReadInputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[131]"></a>GPIO_ReadInputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[131]"></a>GPIO_ReadOutputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[132]"></a>GPIO_ReadOutputDataBit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[132]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[133]"></a>GPIO_ReadOutputData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
 <P><STRONG><a name="[a9]"></a>GPIO_SetBits</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC2_NAck
@@ -1464,25 +1466,25 @@ Global Symbols
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_close
 </UL>
 
-<P><STRONG><a name="[133]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[134]"></a>GPIO_WriteBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[134]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[135]"></a>GPIO_Write</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[135]"></a>GPIO_PinLockConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[136]"></a>GPIO_PinLockConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[136]"></a>GPIO_EventOutputConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[137]"></a>GPIO_EventOutputConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[137]"></a>GPIO_EventOutputCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[138]"></a>GPIO_EventOutputCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[138]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[139]"></a>GPIO_PinRemapConfig</STRONG> (Thumb, 138 bytes, Stack size 20 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[139]"></a>GPIO_EXTILineConfig</STRONG> (Thumb, 66 bytes, Stack size 12 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[13a]"></a>GPIO_EXTILineConfig</STRONG> (Thumb, 66 bytes, Stack size 12 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[13a]"></a>GPIO_ETH_MediaInterfaceConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
+<P><STRONG><a name="[13b]"></a>GPIO_ETH_MediaInterfaceConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_gpio.o(.text), UNUSED)
 
-<P><STRONG><a name="[13b]"></a>RCC_DeInit</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[13c]"></a>RCC_DeInit</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[13c]"></a>RCC_HSEConfig</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[13d]"></a>RCC_HSEConfig</STRONG> (Thumb, 70 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[de]"></a>RCC_GetFlagStatus</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, stm32f10x_rcc.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_WaitForHSEStartUp
@@ -1492,39 +1494,39 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_GetFlagStatus
 </UL>
 
-<P><STRONG><a name="[13d]"></a>RCC_AdjustHSICalibrationValue</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[13e]"></a>RCC_AdjustHSICalibrationValue</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[13e]"></a>RCC_HSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[13f]"></a>RCC_HSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[13f]"></a>RCC_PLLConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[140]"></a>RCC_PLLConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[140]"></a>RCC_PLLCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[141]"></a>RCC_PLLCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[141]"></a>RCC_SYSCLKConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[142]"></a>RCC_SYSCLKConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[142]"></a>RCC_GetSYSCLKSource</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[143]"></a>RCC_GetSYSCLKSource</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[143]"></a>RCC_HCLKConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[144]"></a>RCC_HCLKConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[144]"></a>RCC_PCLK1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[145]"></a>RCC_PCLK1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[145]"></a>RCC_PCLK2Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[146]"></a>RCC_PCLK2Config</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[146]"></a>RCC_ITConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[147]"></a>RCC_ITConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[147]"></a>RCC_USBCLKConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[148]"></a>RCC_USBCLKConfig</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[97]"></a>RCC_ADCCLKConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[148]"></a>RCC_LSEConfig</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[149]"></a>RCC_LSEConfig</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[149]"></a>RCC_LSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14a]"></a>RCC_LSICmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[14a]"></a>RCC_RTCCLKConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14b]"></a>RCC_RTCCLKConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[14b]"></a>RCC_RTCCLKCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14c]"></a>RCC_RTCCLKCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[e1]"></a>RCC_GetClocksFreq</STRONG> (Thumb, 192 bytes, Stack size 12 bytes, stm32f10x_rcc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = RCC_GetClocksFreq
@@ -1532,7 +1534,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_Init
 </UL>
 
-<P><STRONG><a name="[14c]"></a>RCC_AHBPeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14d]"></a>RCC_AHBPeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[96]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IIC2_Init
@@ -1543,7 +1545,7 @@ Global Symbols
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EMV_init
 </UL>
 
-<P><STRONG><a name="[14d]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14e]"></a>RCC_APB1PeriphClockCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[db]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_DeInit
@@ -1558,17 +1560,17 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_DeInit
 </UL>
 
-<P><STRONG><a name="[14e]"></a>RCC_BackupResetCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[14f]"></a>RCC_BackupResetCmd</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[14f]"></a>RCC_ClockSecuritySystemCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[150]"></a>RCC_ClockSecuritySystemCmd</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[150]"></a>RCC_MCOConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[151]"></a>RCC_MCOConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[151]"></a>RCC_ClearFlag</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[152]"></a>RCC_ClearFlag</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[152]"></a>RCC_GetITStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[153]"></a>RCC_GetITStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
-<P><STRONG><a name="[153]"></a>RCC_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
+<P><STRONG><a name="[154]"></a>RCC_ClearITPendingBit</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_rcc.o(.text), UNUSED)
 
 <P><STRONG><a name="[df]"></a>USART_DeInit</STRONG> (Thumb, 134 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
@@ -1583,11 +1585,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
-<P><STRONG><a name="[154]"></a>USART_StructInit</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[155]"></a>USART_StructInit</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[155]"></a>USART_ClockInit</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[156]"></a>USART_ClockInit</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[156]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[157]"></a>USART_ClockStructInit</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[d4]"></a>USART_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
@@ -1599,17 +1601,17 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 </UL>
 
-<P><STRONG><a name="[157]"></a>USART_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[158]"></a>USART_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[158]"></a>USART_SetAddress</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[159]"></a>USART_SetAddress</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[159]"></a>USART_WakeUpConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15a]"></a>USART_WakeUpConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[15a]"></a>USART_ReceiverWakeUpCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15b]"></a>USART_ReceiverWakeUpCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[15b]"></a>USART_LINBreakDetectLengthConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15c]"></a>USART_LINBreakDetectLengthConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[15c]"></a>USART_LINCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15d]"></a>USART_LINCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[d7]"></a>USART_SendData</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendByte
@@ -1620,32 +1622,32 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[15d]"></a>USART_SendBreak</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15e]"></a>USART_SendBreak</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[15e]"></a>USART_SetGuardTime</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[15f]"></a>USART_SetGuardTime</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[15f]"></a>USART_SetPrescaler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[160]"></a>USART_SetPrescaler</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[160]"></a>USART_SmartCardCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[161]"></a>USART_SmartCardCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[161]"></a>USART_SmartCardNACKCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[162]"></a>USART_SmartCardNACKCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[162]"></a>USART_HalfDuplexCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[163]"></a>USART_HalfDuplexCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[163]"></a>USART_OverSampling8Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[164]"></a>USART_OverSampling8Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[164]"></a>USART_OneBitMethodCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[165]"></a>USART_OneBitMethodCmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[165]"></a>USART_IrDAConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[166]"></a>USART_IrDAConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
-<P><STRONG><a name="[166]"></a>USART_IrDACmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[167]"></a>USART_IrDACmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[d8]"></a>USART_GetFlagStatus</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendByte
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SendBytes
 </UL>
 
-<P><STRONG><a name="[167]"></a>USART_ClearFlag</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[168]"></a>USART_ClearFlag</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[d5]"></a>USART_GetITStatus</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, stm32f10x_usart.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = USART_GetITStatus
@@ -1653,22 +1655,22 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[32]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[168]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
+<P><STRONG><a name="[169]"></a>USART_ClearITPendingBit</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, stm32f10x_usart.o(.text), UNUSED)
 
 <P><STRONG><a name="[e2]"></a>TIM_DeInit</STRONG> (Thumb, 424 bytes, Stack size 8 bytes, stm32f10x_tim.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB1PeriphResetCmd
 <LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphResetCmd
 </UL>
 
-<P><STRONG><a name="[169]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16a]"></a>TIM_TimeBaseInit</STRONG> (Thumb, 122 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[16a]"></a>TIM_OC1Init</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16b]"></a>TIM_OC1Init</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[16b]"></a>TIM_OC2Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16c]"></a>TIM_OC2Init</STRONG> (Thumb, 154 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[16c]"></a>TIM_OC3Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16d]"></a>TIM_OC3Init</STRONG> (Thumb, 150 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[16d]"></a>TIM_OC4Init</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16e]"></a>TIM_OC4Init</STRONG> (Thumb, 182 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[eb]"></a>TIM_SetIC4Prescaler</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ICInit
@@ -1706,29 +1708,29 @@ Global Symbols
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_SetIC2Prescaler
 </UL>
 
-<P><STRONG><a name="[16e]"></a>TIM_BDTRConfig</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[16f]"></a>TIM_BDTRConfig</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[16f]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[170]"></a>TIM_TimeBaseStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[170]"></a>TIM_OCStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[171]"></a>TIM_OCStructInit</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[171]"></a>TIM_ICStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[172]"></a>TIM_ICStructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[172]"></a>TIM_BDTRStructInit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[173]"></a>TIM_BDTRStructInit</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[173]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[174]"></a>TIM_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[174]"></a>TIM_CtrlPWMOutputs</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[175]"></a>TIM_CtrlPWMOutputs</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[175]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[176]"></a>TIM_ITConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[176]"></a>TIM_GenerateEvent</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[177]"></a>TIM_GenerateEvent</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[177]"></a>TIM_DMAConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[178]"></a>TIM_DMAConfig</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[178]"></a>TIM_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[179]"></a>TIM_DMACmd</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[179]"></a>TIM_InternalClockConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17a]"></a>TIM_InternalClockConfig</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[ee]"></a>TIM_SelectInputTrigger</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_TIxExternalClockConfig
@@ -1758,115 +1760,115 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_ETRConfig
 </UL>
 
-<P><STRONG><a name="[17a]"></a>TIM_PrescalerConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17b]"></a>TIM_PrescalerConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[17b]"></a>TIM_CounterModeConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17c]"></a>TIM_CounterModeConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[17c]"></a>TIM_EncoderInterfaceConfig</STRONG> (Thumb, 66 bytes, Stack size 20 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17d]"></a>TIM_EncoderInterfaceConfig</STRONG> (Thumb, 66 bytes, Stack size 20 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[17d]"></a>TIM_ForcedOC1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17e]"></a>TIM_ForcedOC1Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[17e]"></a>TIM_ForcedOC2Config</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[17f]"></a>TIM_ForcedOC2Config</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[17f]"></a>TIM_ForcedOC3Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[180]"></a>TIM_ForcedOC3Config</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[180]"></a>TIM_ForcedOC4Config</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[181]"></a>TIM_ForcedOC4Config</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[181]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[182]"></a>TIM_ARRPreloadConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[182]"></a>TIM_SelectCOM</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[183]"></a>TIM_SelectCOM</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[183]"></a>TIM_SelectCCDMA</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[184]"></a>TIM_SelectCCDMA</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[184]"></a>TIM_CCPreloadControl</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[185]"></a>TIM_CCPreloadControl</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[185]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[186]"></a>TIM_OC1PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[186]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[187]"></a>TIM_OC2PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[187]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[188]"></a>TIM_OC3PreloadConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[188]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[189]"></a>TIM_OC4PreloadConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[189]"></a>TIM_OC1FastConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18a]"></a>TIM_OC1FastConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18a]"></a>TIM_OC2FastConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18b]"></a>TIM_OC2FastConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18b]"></a>TIM_OC3FastConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18c]"></a>TIM_OC3FastConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18c]"></a>TIM_OC4FastConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18d]"></a>TIM_OC4FastConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18d]"></a>TIM_ClearOC1Ref</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18e]"></a>TIM_ClearOC1Ref</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18e]"></a>TIM_ClearOC2Ref</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[18f]"></a>TIM_ClearOC2Ref</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[18f]"></a>TIM_ClearOC3Ref</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[190]"></a>TIM_ClearOC3Ref</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[190]"></a>TIM_ClearOC4Ref</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[191]"></a>TIM_ClearOC4Ref</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[191]"></a>TIM_OC1PolarityConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[192]"></a>TIM_OC1PolarityConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[192]"></a>TIM_OC1NPolarityConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[193]"></a>TIM_OC1NPolarityConfig</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[193]"></a>TIM_OC2PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[194]"></a>TIM_OC2PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[194]"></a>TIM_OC2NPolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[195]"></a>TIM_OC2NPolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[195]"></a>TIM_OC3PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[196]"></a>TIM_OC3PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[196]"></a>TIM_OC3NPolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[197]"></a>TIM_OC3NPolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[197]"></a>TIM_OC4PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[198]"></a>TIM_OC4PolarityConfig</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[198]"></a>TIM_CCxCmd</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[199]"></a>TIM_CCxCmd</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[199]"></a>TIM_CCxNCmd</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19a]"></a>TIM_CCxNCmd</STRONG> (Thumb, 30 bytes, Stack size 12 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19a]"></a>TIM_SelectOCxM</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19b]"></a>TIM_SelectOCxM</STRONG> (Thumb, 82 bytes, Stack size 16 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19b]"></a>TIM_UpdateDisableConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19c]"></a>TIM_UpdateDisableConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19c]"></a>TIM_UpdateRequestConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19d]"></a>TIM_UpdateRequestConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19d]"></a>TIM_SelectHallSensor</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19e]"></a>TIM_SelectHallSensor</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19e]"></a>TIM_SelectOnePulseMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[19f]"></a>TIM_SelectOnePulseMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[19f]"></a>TIM_SelectOutputTrigger</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a0]"></a>TIM_SelectOutputTrigger</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a0]"></a>TIM_SelectSlaveMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a1]"></a>TIM_SelectSlaveMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a1]"></a>TIM_SelectMasterSlaveMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a2]"></a>TIM_SelectMasterSlaveMode</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a2]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a3]"></a>TIM_SetCounter</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a3]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a4]"></a>TIM_SetAutoreload</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a4]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a5]"></a>TIM_SetCompare1</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a5]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a6]"></a>TIM_SetCompare2</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a6]"></a>TIM_SetCompare3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a7]"></a>TIM_SetCompare3</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a7]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a8]"></a>TIM_SetCompare4</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a8]"></a>TIM_SetClockDivision</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1a9]"></a>TIM_SetClockDivision</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1a9]"></a>TIM_GetCapture1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1aa]"></a>TIM_GetCapture1</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1aa]"></a>TIM_GetCapture2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1ab]"></a>TIM_GetCapture2</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ab]"></a>TIM_GetCapture3</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1ac]"></a>TIM_GetCapture3</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ac]"></a>TIM_GetCapture4</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1ad]"></a>TIM_GetCapture4</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ad]"></a>TIM_GetCounter</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1ae]"></a>TIM_GetCounter</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ae]"></a>TIM_GetPrescaler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1af]"></a>TIM_GetPrescaler</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1af]"></a>TIM_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1b0]"></a>TIM_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b0]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
+<P><STRONG><a name="[1b1]"></a>TIM_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_tim.o(.text), UNUSED)
 
 <P><STRONG><a name="[8b]"></a>TIM_GetITStatus</STRONG> (Thumb, 34 bytes, Stack size 12 bytes, stm32f10x_tim.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = TIM_GetITStatus
@@ -1892,15 +1894,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[1b1]"></a>ADC_StructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b2]"></a>ADC_StructInit</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[9b]"></a>ADC_Cmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Init
 </UL>
 
-<P><STRONG><a name="[1b2]"></a>ADC_DMACmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b3]"></a>ADC_DMACmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b3]"></a>ADC_ITConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b4]"></a>ADC_ITConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[9c]"></a>ADC_ResetCalibration</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Init
@@ -1922,11 +1924,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Read
 </UL>
 
-<P><STRONG><a name="[1b4]"></a>ADC_GetSoftwareStartConvStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b5]"></a>ADC_GetSoftwareStartConvStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b5]"></a>ADC_DiscModeChannelCountConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b6]"></a>ADC_DiscModeChannelCountConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b6]"></a>ADC_DiscModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b7]"></a>ADC_DiscModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[90]"></a>ADC_RegularChannelConfig</STRONG> (Thumb, 184 bytes, Stack size 20 bytes, stm32f10x_adc.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = ADC_RegularChannelConfig
@@ -1934,53 +1936,53 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Read
 </UL>
 
-<P><STRONG><a name="[1b7]"></a>ADC_ExternalTrigConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b8]"></a>ADC_ExternalTrigConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[93]"></a>ADC_GetConversionValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Read
 </UL>
 
-<P><STRONG><a name="[1b8]"></a>ADC_GetDualModeConversionValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1b9]"></a>ADC_GetDualModeConversionValue</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1b9]"></a>ADC_AutoInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1ba]"></a>ADC_AutoInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ba]"></a>ADC_InjectedDiscModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1bb]"></a>ADC_InjectedDiscModeCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bb]"></a>ADC_ExternalTrigInjectedConvConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1bc]"></a>ADC_ExternalTrigInjectedConvConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bc]"></a>ADC_ExternalTrigInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1bd]"></a>ADC_ExternalTrigInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bd]"></a>ADC_SoftwareStartInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1be]"></a>ADC_SoftwareStartInjectedConvCmd</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1be]"></a>ADC_GetSoftwareStartInjectedConvCmdStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1bf]"></a>ADC_GetSoftwareStartInjectedConvCmdStatus</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1bf]"></a>ADC_InjectedChannelConfig</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c0]"></a>ADC_InjectedChannelConfig</STRONG> (Thumb, 130 bytes, Stack size 20 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c0]"></a>ADC_InjectedSequencerLengthConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c1]"></a>ADC_InjectedSequencerLengthConfig</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c1]"></a>ADC_SetInjectedOffset</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c2]"></a>ADC_SetInjectedOffset</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c2]"></a>ADC_GetInjectedConversionValue</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c3]"></a>ADC_GetInjectedConversionValue</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c3]"></a>ADC_AnalogWatchdogCmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c4]"></a>ADC_AnalogWatchdogCmd</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c4]"></a>ADC_AnalogWatchdogThresholdsConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c5]"></a>ADC_AnalogWatchdogThresholdsConfig</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c5]"></a>ADC_AnalogWatchdogSingleChannelConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c6]"></a>ADC_AnalogWatchdogSingleChannelConfig</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c6]"></a>ADC_TempSensorVrefintCmd</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c7]"></a>ADC_TempSensorVrefintCmd</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
 <P><STRONG><a name="[92]"></a>ADC_GetFlagStatus</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GUA_ADC1_Read
 </UL>
 
-<P><STRONG><a name="[1c7]"></a>ADC_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c8]"></a>ADC_ClearFlag</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c8]"></a>ADC_GetITStatus</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1c9]"></a>ADC_GetITStatus</STRONG> (Thumb, 36 bytes, Stack size 16 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1c9]"></a>ADC_ClearITPendingBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
+<P><STRONG><a name="[1ca]"></a>ADC_ClearITPendingBit</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f10x_adc.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ca]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
+<P><STRONG><a name="[1cb]"></a>__use_no_semihosting</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi_2.o(.text), UNUSED)
 
 <P><STRONG><a name="[c4]"></a>__2sprintf</STRONG> (Thumb, 34 bytes, Stack size 32 bytes, noretval__2sprintf.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 136 + Unknown Stack Size
@@ -2022,7 +2024,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_x
 </UL>
 
-<P><STRONG><a name="[1cb]"></a>_printf_longlong_hex</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, _printf_hex_int.o(.text), UNUSED)
+<P><STRONG><a name="[1cc]"></a>_printf_longlong_hex</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, _printf_hex_int.o(.text), UNUSED)
 
 <P><STRONG><a name="[f5]"></a>__printf</STRONG> (Thumb, 308 bytes, Stack size 40 bytes, __printf_flags_wp.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
@@ -2045,7 +2047,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[c6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[1cc]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
+<P><STRONG><a name="[1cd]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
 
 <P><STRONG><a name="[c6]"></a>__aeabi_memcpy4</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __aeabi_memcpy4
@@ -2055,21 +2057,21 @@ Global Symbols
 <LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
-<P><STRONG><a name="[1cd]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[1ce]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[1ce]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[1cf]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[1cf]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[1d0]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d0]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[1d1]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d1]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[1d2]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d2]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[1d3]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d3]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[1d4]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[1d4]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[1d5]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
 <P><STRONG><a name="[f4]"></a>_printf_int_common</STRONG> (Thumb, 178 bytes, Stack size 32 bytes, _printf_intcommon.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = _printf_int_common &rArr; _printf_post_padding
@@ -2111,13 +2113,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[1d5]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[1d6]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[fb]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[1d6]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[1d7]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[f6]"></a>_is_digit</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, __printf_wp.o(i._is_digit))
 <BR><BR>[Called By]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__printf
@@ -2148,7 +2150,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cycle_check
 </UL>
 
-<P><STRONG><a name="[1d7]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
+<P><STRONG><a name="[1d8]"></a>_dfltu</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, dflt_clz.o(x$fpl$dfltu), UNUSED)
 
 <P><STRONG><a name="[7f]"></a>__aeabi_dmul</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, dmul.o(x$fpl$dmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_dmul
