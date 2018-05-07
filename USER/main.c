@@ -169,12 +169,30 @@ void generate_ack(char if_succeed, u16 last_package_index)
 	{
 		generate_header(47, header);
 	}
+
 	last_package_index_bytes[0] = last_package_index / 256;
 	last_package_index_bytes[1] = last_package_index % 256;
+
+	memcpy(package, header, 5);
+	memcpy(package + 5, last_package_index, 2);
 
 	sign_message(package, 8);
 
 	UART_SendBytes(package, 10, 1);
+}
+
+void generate_wakeup_report()
+{
+	char header[5];
+	unsigned char package[6];
+
+	generate_header(96, header);
+
+	memcpy(package, header, 5);
+
+	sign_message(package, 6);
+
+	UART_SendBytes(package, 6, 1);
 }
 
 void heartbeat_report_control()
@@ -216,8 +234,6 @@ void system_init()
 	//GUA_Battery_Check_Init();
 }
 
-void cycle_check(void);
-
 int main(void)
 {
 	//variable established
@@ -246,10 +262,11 @@ int main(void)
 	char hb_content[6];
 
 	unsigned char i, t;
-	char regist_success_flag = 0;
 
 	u16 tmp_check_time;
-	u16 len, len_r = 0;
+	u16 len = 0;
+
+	char cycle_times = 0;
 
 	//usart_record_p=0;
 
@@ -321,10 +338,13 @@ int main(void)
 	sign_message(hb_content, 6);
 
 	modify_heartbeat_content(hb_content);
-	//=============================================
 
-	//===================计时器初始化==============
-	//TIM3_Int_Init(10000, 7199); //10Khz的计数频率，计数到5000为500ms
+	//等待上线
+
+	while (!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_13))
+	{
+		delay_ms(1000);
+	}
 
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
@@ -333,7 +353,6 @@ int main(void)
 	}
 
 	//注册后直接进入待机模式
-	power_save_mode();
 
 	//进入轮询，LED快速闪烁
 	//===================轮询接收===================
@@ -343,8 +362,11 @@ int main(void)
 		delay_ms(100);
 		LED(0);
 
-		//DEBUG USE: usart record long buffer.
-		//usart_record_p=0;
+		if ((++cycle_times) > 50)
+		{
+			cycle_times = 0;
+			power_save_mode();
+		}
 
 		if (USART_RX_STA & 0x8000)
 		{
@@ -361,10 +383,6 @@ int main(void)
 			{
 				USART_RX_STA = 0;
 				generate_ack(0, 0);
-
-				//收到无效数据，继续待机
-				power_save_mode();
-
 				continue;
 			}
 			//
@@ -388,7 +406,6 @@ int main(void)
 				cycle_check();
 				generate_report();
 				delay_ms(1000);
-				//generate_status();
 				USART_RX_STA = 0;
 				break;
 			case 2:
@@ -433,164 +450,21 @@ int main(void)
 							   tim.check_interval);
 					modify_heartbeat_time(tmp_check_time);
 					break;
-					// case 4:
-					// 	//调整普通上报包时间间隔
-					// 	set_timing(((input_buffer[5] + 256) % 256) * 256 * 10 + (input_buffer[6] + 256) * 10 % 256,
-					// 			   tim.heartbeat_interval,
-					// 			   tim.check_interval);
-
-					// 	break;
-					// case 8:
-					// 	//调整异常检测时间
-					// 	set_timing(tim.report_interval,
-					// 			   tim.heartbeat_interval,
-					// 			   ((input_buffer[5] + 256) % 256) * 256 + (input_buffer[6] + 256) % 256);
-
-					// 	break;
 				}
 				USART_RX_STA = 0;
 				break;
-			case 4:
-				//修改服务器IP、端口
-				ip[0] = (input_buffer[5] + 256) % 256;
-				ip[1] = (input_buffer[6] + 256) % 256;
-				ip[2] = (input_buffer[7] + 256) % 256;
-				ip[3] = (input_buffer[8] + 256) % 256;
-
-				port = (input_buffer[9] + 256) % 256 * 256 + (input_buffer[10] + 256) % 256;
-
-				//可能需要用到sim模块的AT指令
-				ip_str[0] = '\"';
-				ip_str[1] = ip[0];
-				ip_str[3] = ip[1];
-				ip_str[5] = ip[2];
-				ip_str[7] = ip[3];
-				ip_str[2] = ip_str[4] = ip_str[6] = '.';
-				ip_str[8] = '\"';
-
-				modify_SIM_server(ip_str, 14, port);
-				USART_RX_STA = 0;
-				break;
-			case 7:
-				//自动控制
-				auto_control_flag = input_msg_subtype;
-				USART_RX_STA = 0;
-				break;
-			case 8:
-				//固件升级
-				//IAP未解决
-				break;
 			}
-
-			//响应完成后，继续进入待机模式
-			power_save_mode();
-
 			continue;
 		}
 	}
 }
 
-void cycle_check()
+void EXTI15_10_IRQHandler(void)
 {
-	//获取传感器数据
-	//get_sensor_data();
-	FourChannelADRead(ADa_result, ADb_result);
+	delay_ms(10);
+	wakeup();
+	generate_wakeup_report();
 
-	/*暂定数据格式为：
-	* ADa:ch0,ch1,ch2,ch3 - 四路湿度值
-	* ADb:ch0 - 电池电压
-	* ADb:ch1 - 水压值
-	* ADb:ch2,ch3 - 闲置
-	*/
-	cur.Humi1 = ADa_result[0];
-	cur.Humi2 = ADa_result[1];
-	cur.Humi3 = ADa_result[2];
-	cur.Humi4 = ADa_result[3];
-	cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4;
-	cur.Volt_cur = ADb_result[0];
-	cur.Pres_cur = ADb_result[1];
-
-	//自动控制
-	// if (auto_control_flag)
-	// {
-	// 	if (cur.Humi_cur < kp.Humi_low)
-	// 	{
-	// 		EMV_open();
-	// 	}
-	// 	else if (cur.Humi_cur > kp.Humi_high)
-	// 	{
-	// 		EMV_close();
-	// 	}
-	// }
-
-	//获取报警数据
-	alarm();
-
-	//判断是否需要报警
-	switch (ws.Volt_state)
-	{
-	case -1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(243);
-		}
-		break;
-	case 0:
-		warn_ignore_flag = 0;
-		break;
-	case 1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(242);
-		}
-		break;
-	}
-
-	switch (ws.Humi_state)
-	{
-	case -1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(241);
-		}
-		break;
-	case 0:
-		warn_ignore_flag = 0;
-		break;
-	case 1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(240);
-		}
-		break;
-	}
-
-	switch (ws.Pres_state)
-	{
-	case -1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(245);
-		}
-		break;
-	case 0:
-
-		warn_ignore_flag = 0;
-		break;
-	case 1:
-		if (warn_ignore_flag == 0)
-		{
-			generate_warning(244);
-		}
-		break;
-	}
-
-	//获取电池状态
-	//nGUA_Battery_Check_Value = GUA_Battery_Check_Read();
-	//cur.Volt_cur = nGUA_Battery_Check_Value * 3.3 / 4096;
-
-	if (0) //检测阀门是否异常
-	{
-		generate_warning(246);
-	}
+	USART_RX_STA = 0;
+	EXTI_ClearITPendingBit(EXTI_Line10); //清除LINE0上的中断标志位
 }

@@ -6,6 +6,8 @@
 
 void SIM_module_init()
 {
+	link_gpio_init();
+
 	enter_com_mode();
 	delay_ms(500);
 	enter_configuration_mode();
@@ -31,6 +33,18 @@ void SIM_module_init()
 	UART_SendBytes("AT+S", 4, 0);
 }
 
+void link_gpio_init()
+{
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); //使能PB端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;		  //LED0-->PB.5 端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;	 //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);			  //根据设定参数初始化GPIOB.5
+}
+
 void enter_com_mode()
 {
 	UART_SendBytes("AT+ENTM", 7, 0);
@@ -42,16 +56,7 @@ void enter_configuration_mode()
 	UART_SendByte('+');
 	UART_SendByte('+');
 	UART_SendByte('+');
-	//		while (1)
-	//		{
-	//			if (USART_RX_STA & 0x8000)
-	//			{
-	//				target=USART_RX_BUF[0];
-	//			}
-	//			USART_RX_STA = 0;
-	//			if(target=='a')
-	//				break;
-	//		}
+
 	delay_ms(500);
 	UART_SendByte('a');
 }
@@ -107,7 +112,7 @@ void modify_heartbeat_content(char *content)
 
 	UART_SendBytes(control_sig, 36, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+S", 4, 0);
+	UART_SendBytes("irgt#AT+S", 9, 0);
 	delay_ms(500);
 }
 

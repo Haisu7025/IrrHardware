@@ -148,3 +148,108 @@ void report_warningstate(char *report)
     report[3] = cur.Pres_cur / 256;
     report[4] = cur.Pres_cur % 256;
 }
+
+void cycle_check()
+{
+    //获取传感器数据
+    //get_sensor_data();
+    FourChannelADRead(ADa_result, ADb_result);
+
+    /*暂定数据格式为：
+	* ADa:ch0,ch1,ch2,ch3 - 四路湿度值
+	* ADb:ch0 - 电池电压
+	* ADb:ch1 - 水压值
+	* ADb:ch2,ch3 - 闲置
+	*/
+    cur.Humi1 = ADa_result[0];
+    cur.Humi2 = ADa_result[1];
+    cur.Humi3 = ADa_result[2];
+    cur.Humi4 = ADa_result[3];
+    cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4;
+    cur.Volt_cur = ADb_result[0];
+    cur.Pres_cur = ADb_result[1];
+
+    //自动控制
+    // if (auto_control_flag)
+    // {
+    // 	if (cur.Humi_cur < kp.Humi_low)
+    // 	{
+    // 		EMV_open();
+    // 	}
+    // 	else if (cur.Humi_cur > kp.Humi_high)
+    // 	{
+    // 		EMV_close();
+    // 	}
+    // }
+
+    //获取报警数据
+    alarm();
+
+    //判断是否需要报警
+    switch (ws.Volt_state)
+    {
+    case -1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(243);
+        }
+        break;
+    case 0:
+        warn_ignore_flag = 0;
+        break;
+    case 1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(242);
+        }
+        break;
+    }
+
+    switch (ws.Humi_state)
+    {
+    case -1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(241);
+        }
+        break;
+    case 0:
+        warn_ignore_flag = 0;
+        break;
+    case 1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(240);
+        }
+        break;
+    }
+
+    switch (ws.Pres_state)
+    {
+    case -1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(245);
+        }
+        break;
+    case 0:
+
+        warn_ignore_flag = 0;
+        break;
+    case 1:
+        if (warn_ignore_flag == 0)
+        {
+            generate_warning(244);
+        }
+        break;
+    }
+
+    //获取电池状态
+    //nGUA_Battery_Check_Value = GUA_Battery_Check_Read();
+    //cur.Volt_cur = nGUA_Battery_Check_Value * 3.3 / 4096;
+
+    if (0) //检测阀门是否异常
+    {
+        generate_warning(246);
+    }
+}
