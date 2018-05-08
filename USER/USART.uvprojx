@@ -424,16 +424,6 @@
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
             <File>
-              <FileName>GUA_ADC1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\battery\GUA_ADC1.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUA_Battery_Check.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\battery\GUA_Battery_Check.c</FilePath>
-            </File>
-            <File>
               <FileName>data.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\data\data.c</FilePath>

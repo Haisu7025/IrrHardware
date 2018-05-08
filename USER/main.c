@@ -8,8 +8,7 @@
 #include "timer.h"
 #include "EMV.h"
 #include "Verify_Helper.h"
-#include "GUA_Battery_Check.h"
-#include "LED.h"
+#include "led.h"
 #include "ps.h"
 
 //状态
@@ -174,7 +173,7 @@ void generate_ack(char if_succeed, u16 last_package_index)
 	last_package_index_bytes[1] = last_package_index % 256;
 
 	memcpy(package, header, 5);
-	memcpy(package + 5, last_package_index, 2);
+	memcpy(package + 5, last_package_index_bytes, 2);
 
 	sign_message(package, 8);
 
@@ -226,12 +225,118 @@ void system_init()
 	cur_count = 0;
 
 	//delay_init();									//延时函数初始化
+	LED_GPIO_init();
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);								//串口初始化为115200
 	PCF8591a_Init();
 	PCF8591b_Init();
 	EMV_init();
 	//GUA_Battery_Check_Init();
+}
+
+void cycle_check()
+{
+	//获取传感器数据
+	//get_sensor_data();
+	FourChannelADRead(ADa_result, ADb_result);
+
+	/*暂定数据格式为：
+	* ADa:ch0,ch1,ch2,ch3 - 四路湿度值
+	* ADb:ch0 - 电池电压
+	* ADb:ch1 - 水压值
+	* ADb:ch2,ch3 - 闲置
+	*/
+	cur.Humi1 = ADa_result[0];
+	cur.Humi2 = ADa_result[1];
+	cur.Humi3 = ADa_result[2];
+	cur.Humi4 = ADa_result[3];
+	cur.Humi_cur = (cur.Humi1 + cur.Humi2 + cur.Humi3 + cur.Humi4) / 4;
+	cur.Volt_cur = ADb_result[0];
+	cur.Pres_cur = ADb_result[1];
+
+	//自动控制
+	// if (auto_control_flag)
+	// {
+	// 	if (cur.Humi_cur < kp.Humi_low)
+	// 	{
+	// 		EMV_open();
+	// 	}
+	// 	else if (cur.Humi_cur > kp.Humi_high)
+	// 	{
+	// 		EMV_close();
+	// 	}
+	// }
+
+	//获取报警数据
+	alarm();
+
+	//判断是否需要报警
+	switch (ws.Volt_state)
+	{
+	case -1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(243);
+		}
+		break;
+	case 0:
+		warn_ignore_flag = 0;
+		break;
+	case 1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(242);
+		}
+		break;
+	}
+
+	switch (ws.Humi_state)
+	{
+	case -1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(241);
+		}
+		break;
+	case 0:
+		warn_ignore_flag = 0;
+		break;
+	case 1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(240);
+		}
+		break;
+	}
+
+	switch (ws.Pres_state)
+	{
+	case -1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(245);
+		}
+		break;
+	case 0:
+
+		warn_ignore_flag = 0;
+		break;
+	case 1:
+		if (warn_ignore_flag == 0)
+		{
+			generate_warning(244);
+		}
+		break;
+	}
+
+	//获取电池状态
+	//nGUA_Battery_Check_Value = GUA_Battery_Check_Read();
+	//cur.Volt_cur = nGUA_Battery_Check_Value * 3.3 / 4096;
+
+	if (0) //检测阀门是否异常
+	{
+		generate_warning(246);
+	}
 }
 
 int main(void)
@@ -273,8 +378,11 @@ int main(void)
 	//===================初始化配置===================
 	system_init();
 	//================================================
-
+	delay_ms(5000);
+	LED0(1);
+	power_save_mode();
 	//===================配置sim模块===================
+	LED1(1);
 	SIM_module_init();
 	delay_ms(5000);
 	UART_SendBytes("AT+ENTM", 7, 0);
@@ -284,6 +392,8 @@ int main(void)
 	//===================开机注册===================
 	while (module_index <= 0)
 	{
+		flash_LED0(3, 300);
+		
 		generate_regist();
 		USART_RX_STA = 0;
 		i = 0;
@@ -340,7 +450,8 @@ int main(void)
 	modify_heartbeat_content(hb_content);
 
 	//等待上线
-
+	
+	delay_ms(200);
 	while (!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_13))
 	{
 		delay_ms(1000);
@@ -358,9 +469,8 @@ int main(void)
 	//===================轮询接收===================
 	while (1)
 	{
-		LED(1);
+		flash_LED0(2, 100);
 		delay_ms(100);
-		LED(0);
 
 		if ((++cycle_times) > 50)
 		{

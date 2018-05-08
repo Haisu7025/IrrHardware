@@ -74,5 +74,4 @@ void report_curstate(char *report);
 
 void report_warningstate(char *report);
 
-void cycle_check(void);
 #endif

@@ -2,6 +2,7 @@
 #include "usart.h"
 #include "EMV.h"
 #include "PCF8591.h"
+#include "led.h"
 
 void power_save_mode(void)
 {
@@ -11,10 +12,19 @@ void power_save_mode(void)
     //初始化KEY1-->GPIOE.0  上拉输入
 
     USART_ITConfig(USART1, USART_IT_RXNE, DISABLE); //关闭串口接受中断
-
+	
+		GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_All; 
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入  
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+	
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+    GPIO_Init(GPIOC, &GPIO_InitStructure);
+	
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU; //设置成上拉输入
-    GPIO_Init(GPIOA, &GPIO_InitStructure);        //初始化GPIOE.0
+		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);      
 
     //RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
     GPIO_EXTILineConfig(GPIO_PortSourceGPIOA, GPIO_PinSource10);
@@ -39,6 +49,7 @@ void power_save_mode(void)
 void wakeup(void)
 {
     SystemInit();
+		LED_GPIO_init();
     EXTI_DeInit();
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); //设置NVIC中断分组2:2位抢占优先级，2位响应优先级
     PCF8591a_Init();

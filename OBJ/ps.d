@@ -36,3 +36,4 @@
 ..\obj\ps.o: ..\SYSTEM\delay\delay.h
 ..\obj\ps.o: .\PCF8591\PCF8591.h
 ..\obj\ps.o: .\PCF8591\iic\iic.h
+..\obj\ps.o: .\LED\led.h

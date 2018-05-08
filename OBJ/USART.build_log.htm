@@ -22,32 +22,18 @@ Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
 Z:\shared\project\USER\USART.uvprojx
-Project File Date:  05/05/2018
+Project File Date:  05/08/2018
 
 <h2>Output:</h2>
 Build target 'USART'
-compiling SIM.c...
-SIM\SIM.c(41): warning:  #177-D: variable "target" was declared but never referenced
-        char target;
-SIM\SIM.c(80): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(mod_pack, 16 + time_len, 0);
-SIM\SIM.c(108): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(control_sig, 36, 0);
-SIM\SIM.c(138): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(package, 20 + ip_len + 2 + 1 + port_len, 0);
-SIM\SIM.c(141): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(inst1, 22, 0);
-SIM\SIM.c(148): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(inst, 9, 0);
-SIM\SIM.c(155): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(inst, 19, 0);
-SIM\SIM.c(162): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
-        UART_SendBytes(inst, 9, 0);
-SIM\SIM.c: 8 warnings, 0 errors
+compiling ps.c...
+.\LED\led.h(28): warning:  #1-D: last line of file ends without a newline
+                
+power_save\ps.c: 1 warning, 0 errors
 linking...
-Program Size: Code=18342 RO-data=394 RW-data=216 ZI-data=1832  
+Program Size: Code=18522 RO-data=394 RW-data=216 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\USART.axf" - 0 Error(s), 8 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   Z:\shared\project\USER\RTE

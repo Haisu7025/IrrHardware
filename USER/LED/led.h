@@ -19,4 +19,10 @@ void LED_GPIO_init(void);
     else                                   \
         GPIO_SetBits(GPIOA, GPIO_Pin_8)
 
+void flash_LED0(u8 n, u16 delay);
+void flash_LED1(u8 n, u16 delay);
+		
 #endif
+
+		
+		

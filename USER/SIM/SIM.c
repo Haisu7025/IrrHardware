@@ -28,14 +28,12 @@ void SIM_module_init()
 	delay_ms(500);
 	UART_SendBytes("AT+CMDPW=\"irgt\"", 15, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+SLEEPTIM=10", 14, 0);
-	delay_ms(500);
 	UART_SendBytes("AT+STMSG=\"\"", 11, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+S", 4, 0);
 }
 
-void link_gpio_init()
+void link_gpio_init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 
@@ -86,7 +84,7 @@ void modify_heartbeat_time(u16 time)
 	memcpy(mod_pack + 16, time_s, time_len);
 	UART_SendBytes(mod_pack, 16 + time_len, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+S", 4, 0);
+	UART_SendBytes("irgt#AT+S", 9, 0);
 	delay_ms(500);
 }
 

@@ -2,8 +2,6 @@
 "..\obj\main.o"
 "..\obj\stm32f10x_it.o"
 "..\obj\system_stm32f10x.o"
-"..\obj\gua_adc1.o"
-"..\obj\gua_battery_check.o"
 "..\obj\data.o"
 "..\obj\emv.o"
 "..\obj\pcf8591.o"

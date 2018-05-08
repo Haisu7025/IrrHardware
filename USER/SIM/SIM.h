@@ -2,6 +2,7 @@
 #define __SIM_H
 #include "sys.h"
 
+void link_gpio_init(void);
 void modify_heartbeat_time(u16 time);
 void modify_heartbeat_content(char *content);
 void modify_SIM_server(char *ip_address, u16 ip_len, u16 port);
