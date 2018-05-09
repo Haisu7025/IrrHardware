@@ -378,11 +378,10 @@ int main(void)
 	//===================初始化配置===================
 	system_init();
 	//================================================
-	delay_ms(5000);
-	LED0(1);
-	power_save_mode();
+
 	//===================配置sim模块===================
 	LED1(1);
+	LED0(1);
 	SIM_module_init();
 	delay_ms(5000);
 	UART_SendBytes("AT+ENTM", 7, 0);
@@ -392,9 +391,10 @@ int main(void)
 	//===================开机注册===================
 	while (module_index <= 0)
 	{
-		flash_LED0(3, 300);
-		
+		//flash_LED0(3, 300);
+
 		generate_regist();
+		LED1(0);
 		USART_RX_STA = 0;
 		i = 0;
 		while (i < 10)
@@ -432,11 +432,11 @@ int main(void)
 				}
 			}
 		}
-		if (module_index == 0)
-		{
-			//若从循环跳出后仍然没有收到正确id，则重启
-			SoftReset();
-		}
+		//		if (module_index == 0)
+		//		{
+		//			//若从循环跳出后仍然没有收到正确id，则重启
+		//			SoftReset();
+		//		}
 	}
 
 	//生成正确id对应的心跳包
@@ -450,9 +450,9 @@ int main(void)
 	modify_heartbeat_content(hb_content);
 
 	//等待上线
-	
-	delay_ms(200);
-	while (!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_13))
+	LED1(0);
+	delay_ms(5000);
+	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
 	{
 		delay_ms(1000);
 	}
@@ -465,6 +465,7 @@ int main(void)
 
 	//注册后直接进入待机模式
 
+	LED0(0);
 	//进入轮询，LED快速闪烁
 	//===================轮询接收===================
 	while (1)
