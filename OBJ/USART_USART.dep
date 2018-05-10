@@ -1,5 +1,5 @@
 Dependencies for Project 'USART', Target 'USART': (DO NOT MODIFY !)
-F (.\main.c)(0x5AF1E8BA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5AF45749)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -31,17 +31,17 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\SYSTEM\usart\usart.h)(0x5AF06B42)
+I (..\SYSTEM\usart\usart.h)(0x5AF44928)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (.\PCF8591\PCF8591.h)(0x5AD09FFE)
 I (.\PCF8591\iic\iic.h)(0x5AD09B5F)
 I (.\data\data.h)(0x5AF19053)
-I (.\SIM\SIM.h)(0x5AF18FCD)
+I (.\SIM\SIM.h)(0x5AF44B60)
 I (.\timer\timer.h)(0x5AD093C4)
 I (.\EMV\EMV.h)(0x5AF06B42)
 I (.\verifier\Verify_Helper.h)(0x5AC772A2)
 I (.\verifier\md5.h)(0x5AC7712B)
-I (.\LED\led.h)(0x5AF1AD9C)
+I (.\LED\led.h)(0x5AF44C54)
 I (.\power_save\ps.h)(0x5AF06B42)
 F (.\stm32f10x_it.c)(0x4EBEACB0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\stm32f10x_it.o --omf_browse ..\obj\stm32f10x_it.crf --depend ..\obj\stm32f10x_it.d)
 I (stm32f10x_it.h)(0x4D99A426)
@@ -138,7 +138,7 @@ I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 I (data\data.h)(0x5AF19053)
 I (.\PCF8591\PCF8591.h)(0x5AD09FFE)
 I (.\PCF8591\iic\iic.h)(0x5AD09B5F)
-F (.\EMV\EMV.c)(0x5AF192B4)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\emv.o --omf_browse ..\obj\emv.crf --depend ..\obj\emv.d)
+F (.\EMV\EMV.c)(0x5AF30B7F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\emv.o --omf_browse ..\obj\emv.crf --depend ..\obj\emv.d)
 I (EMV\EMV.h)(0x5AF06B42)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
@@ -233,8 +233,8 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
-F (.\SIM\SIM.c)(0x5AF1ECC9)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim.o --omf_browse ..\obj\sim.crf --depend ..\obj\sim.d)
-I (SIM\SIM.h)(0x5AF18FCD)
+F (.\SIM\SIM.c)(0x5AF4548F)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sim.o --omf_browse ..\obj\sim.crf --depend ..\obj\sim.d)
+I (SIM\SIM.h)(0x5AF44B60)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -266,7 +266,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5475F300)
-I (..\SYSTEM\usart\usart.h)(0x5AF06B42)
+I (..\SYSTEM\usart\usart.h)(0x5AF44928)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 F (.\timer\timer.c)(0x5AF06B42)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\timer.o --omf_browse ..\obj\timer.crf --depend ..\obj\timer.d)
@@ -333,7 +333,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\verifier\Verify_Helper.c)(0x5AC772A0)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\verify_helper.o --omf_browse ..\obj\verify_helper.crf --depend ..\obj\verify_helper.d)
+F (.\verifier\Verify_Helper.c)(0x5AF44C65)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\verify_helper.o --omf_browse ..\obj\verify_helper.crf --depend ..\obj\verify_helper.d)
 I (verifier\Verify_Helper.h)(0x5AC772A2)
 I (verifier\md5.h)(0x5AC7712B)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
@@ -366,7 +366,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
 F (.\LED\led.c)(0x5AF1AD78)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\led.o --omf_browse ..\obj\led.crf --depend ..\obj\led.d)
-I (LED\led.h)(0x5AF1AD9C)
+I (LED\led.h)(0x5AF44C54)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -396,7 +396,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (.\power_save\ps.c)(0x5AF1B950)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\ps.o --omf_browse ..\obj\ps.crf --depend ..\obj\ps.d)
+F (.\power_save\ps.c)(0x5AF310F8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\ps.o --omf_browse ..\obj\ps.crf --depend ..\obj\ps.d)
 I (power_save\ps.h)(0x5AF06B42)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
@@ -427,13 +427,13 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\usart\usart.h)(0x5AF06B42)
+I (..\SYSTEM\usart\usart.h)(0x5AF44928)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (.\EMV\EMV.h)(0x5AF06B42)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)
 I (.\PCF8591\PCF8591.h)(0x5AD09FFE)
 I (.\PCF8591\iic\iic.h)(0x5AD09B5F)
-I (.\LED\led.h)(0x5AF1AD9C)
+I (.\LED\led.h)(0x5AF44C54)
 F (..\SYSTEM\sys\sys.c)(0x55018498)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
@@ -464,7 +464,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-F (..\SYSTEM\usart\usart.c)(0x5AF06B42)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
+F (..\SYSTEM\usart\usart.c)(0x5AF44916)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\HARDWARE\LED -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\HARDWARE\KEY -I.\battery -I.\data -I.\EMV -I.\PCF8591 -I.\PCF8591\iic -I.\SIM -I.\timer -I.\verifier -I.\LED -I.\power_save-I Z:\shared\project\USER\RTE-I C:\developer\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0-I C:\developer\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\usart.o --omf_browse ..\obj\usart.crf --depend ..\obj\usart.d)
 I (..\SYSTEM\sys\sys.h)(0x550F951A)
 I (..\USER\stm32f10x.h)(0x4D783CB4)
 I (..\CORE\core_cm3.h)(0x4D523B58)
@@ -494,7 +494,7 @@ I (..\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5051A0AE)
 I (..\STM32F10x_FWLib\inc\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\STM32F10x_FWLib\inc\misc.h)(0x4D783BB4)
-I (..\SYSTEM\usart\usart.h)(0x5AF06B42)
+I (..\SYSTEM\usart\usart.h)(0x5AF44928)
 I (C:\developer\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (.\data\data.h)(0x5AF19053)
 I (..\SYSTEM\delay\delay.h)(0x5975FE5F)

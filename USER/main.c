@@ -194,6 +194,20 @@ void generate_wakeup_report()
 	UART_SendBytes(package, 6, 1);
 }
 
+void generate_reconnect_report()
+{
+	char header[5];
+	unsigned char package[6];
+
+	generate_header(112, header);
+
+	memcpy(package, header, 5);
+
+	sign_message(package, 6);
+
+	UART_SendBytes(package, 6, 1);
+}
+
 void heartbeat_report_control()
 {
 	char heartbeat[6];
@@ -377,13 +391,24 @@ int main(void)
 
 	//===================初始化配置===================
 	system_init();
+	
+	//等待服务器配置网络模块使其退出睡眠状态
+	delay_ms(8000);
+
+	//通知服务器需要关闭睡眠
+	generate_reconnect_report();
 	//================================================
 
 	//===================配置sim模块===================
 	LED1(1);
 	LED0(1);
 	SIM_module_init();
+
+	//等待服务器
 	delay_ms(5000);
+	UART_ClearSend(0);
+	UART_ClearSend(1);
+
 	UART_SendBytes("AT+ENTM", 7, 0);
 	//	delay_ms(5000);
 	//================================================
@@ -411,17 +436,31 @@ int main(void)
 				USART_RX_STA = 0;
 				//check success reply
 
+				//check success reply
+				if (input_buffer[3] == 80)
+				{
+					//if '00' is redundant at the beginning
+					len--;
+					for (t = 0; t < len; t++)
+					{
+						input_buffer[t] = input_buffer[t + 1];
+					}
+				}
+
+				if (input_buffer[1] == 80)
+				{
+					//if '00' is redundant at the beginning
+					len++;
+					for (t = len - 1; t >= 1; t++)
+					{
+						input_buffer[t] = input_buffer[t - 1];
+					}
+					input_buffer[0] = 0x00;
+				}
+
 				if (input_buffer[2] == 80)
 				{
-					if (input_buffer[3] == 80)
-					{
-						//if '00' is inserted at the beginning
-						len--;
-						for (t = 0; t < len; t++)
-						{
-							input_buffer[t] = input_buffer[t + 1];
-						}
-					}
+
 					if (!check_sign(input_buffer, 6))
 					{
 						USART_RX_STA = 0;
@@ -447,7 +486,7 @@ int main(void)
 	hb_content[4] = module_index % 256;
 	sign_message(hb_content, 6);
 
-	modify_heartbeat_content(hb_content);
+	init_hbid_and_slptim(hb_content);
 
 	//等待上线
 	LED1(0);

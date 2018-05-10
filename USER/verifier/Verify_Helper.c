@@ -35,8 +35,6 @@ void sign_message(unsigned char *raw_message, char msg_full_len)
 
 char check_sign(unsigned char *signed_message, char msg_full_len)
 {
-
-  char i;
   unsigned char temp[64];
 
   mmcpy(temp, signed_message, msg_full_len - 1);

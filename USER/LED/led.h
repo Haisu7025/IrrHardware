@@ -23,6 +23,4 @@ void flash_LED0(u8 n, u16 delay);
 void flash_LED1(u8 n, u16 delay);
 		
 #endif
-
-		
 		

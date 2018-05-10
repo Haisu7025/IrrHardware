@@ -4,6 +4,7 @@
         "*.v": "verilog",
         "*.bsv": "c",
         "emv.h": "c",
-        "data.h": "c"
+        "data.h": "c",
+        "usart.h": "c"
     }
 }

@@ -20,7 +20,7 @@ void SIM_module_init()
 	delay_ms(500);
 	UART_SendBytes("AT+HEARTTM=30", 13, 0);
 	delay_ms(500);
-	UART_SendBytes("AT+SOCKA=\"TCP\",\"123.206.21.240\",2317", 36, 0);
+	UART_SendBytes("AT+SOCKA=\"TCP\",\"123.206.21.240\",2318", 36, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+SOCKASL=\"long\"", 17, 0);
 	delay_ms(500);
@@ -31,9 +31,9 @@ void SIM_module_init()
 	UART_SendBytes("AT+STMSG=\"\"", 11, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+S", 4, 0);
-	
+
 	delay_ms(5000);
-	while(!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
+	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
 	{
 		delay_ms(1000);
 	}
@@ -45,10 +45,10 @@ void link_gpio_init(void)
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //使能PB端口时钟
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;		  //LED0-->PB.5 端口配置
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;	 //推挽输出
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; //IO口速度为50MHz
-	GPIO_Init(GPIOC, &GPIO_InitStructure);			  //根据设定参数初始化GPIOB.5
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;			  //LED0-->PB.5 端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	 //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);				  //根据设定参数初始化GPIOB.5
 }
 
 void enter_com_mode()
@@ -65,6 +65,14 @@ void enter_configuration_mode()
 
 	delay_ms(500);
 	UART_SendByte('a');
+}
+
+void enter_sleep_mode(void)
+{
+	UART_SendBytes("irgt#AT+SLEEPTIM=20", 19, 0);
+	delay_ms(500);
+	UART_SendBytes("irgt#AT+S", 9, 0);
+	delay_ms(500);
 }
 
 void modify_heartbeat_time(u16 time)
@@ -94,6 +102,33 @@ void modify_heartbeat_time(u16 time)
 	delay_ms(500);
 }
 
+void init_hbid_and_slptim(char *content)
+{
+	//注意content要加双引号
+	u16 i;
+	char szTmp[2];
+	char control_sig[36];
+	char *inst = "irgt#AT+HEARTDT=";
+	memcpy(control_sig, inst, 16);
+	control_sig[16] = '\"';
+	for (i = 0; i < 6; i++)
+	{
+		sprintf(szTmp, "%02X", content[i]);
+		memcpy(control_sig + 17 + i * 2, szTmp, 2);
+	}
+	control_sig[29] = 'f';
+	control_sig[30] = 'e';
+	control_sig[31] = '0';
+	control_sig[32] = 'a';
+	control_sig[33] = 'e';
+	control_sig[34] = 'f';
+	control_sig[35] = '\"';
+
+	UART_SendBytes(control_sig, 36, 0);
+	delay_ms(500);
+
+	enter_sleep_mode();
+}
 void modify_heartbeat_content(char *content)
 {
 	//注意content要加双引号

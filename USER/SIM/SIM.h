@@ -12,5 +12,7 @@ void save_modify(void);
 void SIM_module_init(void);
 void enter_com_mode(void);
 void enter_configuration_mode(void);
+void enter_sleep_mode(void);
+void init_hbid_and_slptim(char *content);
 
 #endif
