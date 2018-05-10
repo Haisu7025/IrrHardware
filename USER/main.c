@@ -194,12 +194,26 @@ void generate_wakeup_report()
 	UART_SendBytes(package, 6, 1);
 }
 
-void generate_reconnect_report()
+void generate_reconnect_report(void)
 {
 	char header[5];
 	unsigned char package[6];
 
 	generate_header(112, header);
+
+	memcpy(package, header, 5);
+
+	sign_message(package, 6);
+
+	UART_SendBytes(package, 6, 1);
+}
+
+void generate_id_ack(void)
+{
+	char header[5];
+	unsigned char package[6];
+
+	generate_header(80, header);
 
 	memcpy(package, header, 5);
 
@@ -391,7 +405,7 @@ int main(void)
 
 	//===================初始化配置===================
 	system_init();
-	
+
 	//等待网络模块连接服务器
 	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
 	{
@@ -506,7 +520,7 @@ int main(void)
 	{
 		USART_RX_BUF[t] = 0;
 	}
-
+	generate_id_ack();
 	//注册后直接进入待机模式
 
 	LED0(0);
