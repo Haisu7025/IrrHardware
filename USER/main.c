@@ -392,8 +392,13 @@ int main(void)
 	//===================初始化配置===================
 	system_init();
 	
+	//等待网络模块连接服务器
+	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
+	{
+		delay_ms(1000);
+	}
 	//等待服务器配置网络模块使其退出睡眠状态
-	delay_ms(8000);
+	delay_ms(5000);
 
 	//通知服务器需要关闭睡眠
 	generate_reconnect_report();
