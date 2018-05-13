@@ -4,7 +4,9 @@
 
 void link_gpio_init(void);
 void reset_gpio_init(void);
-void reset_SIM(void);
+void reload_gpio_init(void);
+
+void reload_SIM(void);
 void soft_reset_SIM(void);
 
 void modify_heartbeat_time(u16 time);

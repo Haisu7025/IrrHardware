@@ -8,15 +8,16 @@ void SIM_module_init()
 {
 	link_gpio_init();
 	reset_gpio_init();
-
-	reset_SIM();
+	reload_gpio_init();
+	
+	reload_SIM();
 
 	enter_com_mode();
 	delay_ms(500);
 	enter_configuration_mode();
 	delay_ms(500);
-	UART_SendBytes("AT+E=\"off\"", 10, 0);
-	delay_ms(500);
+	//UART_SendBytes("AT+E=\"off\"", 10, 0);
+	//delay_ms(500);
 	UART_SendBytes("AT+UART=115200,\"NONE\",8,1,\"NONE\"", 32, 0);
 	delay_ms(500);
 	UART_SendBytes("AT+APN=\"cmnet\"", 14, 0);
@@ -71,12 +72,25 @@ void reset_gpio_init(void)
 	GPIO_SetBits(GPIOC, GPIO_Pin_11);
 }
 
-void reset_SIM(void)
+void reload_gpio_init(void)
 {
-	GPIO_ResetBits(GPIOC, GPIO_Pin_11);
+		GPIO_InitTypeDef GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE); //使能PB端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;		  //LED0-->PB.5 端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;  //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);			  //根据设定参数初始化GPIOB.5
+	GPIO_SetBits(GPIOC, GPIO_Pin_10);
+}
+
+void reload_SIM(void)
+{
+	GPIO_ResetBits(GPIOC, GPIO_Pin_10);
 	delay_ms(8000);
-	GPIO_SetBits(GPIOC, GPIO_Pin_11);
-	delay_ms(100);
+	GPIO_SetBits(GPIOC, GPIO_Pin_10);
+	delay_ms(8000);
 }
 
 void soft_reset_SIM(void)

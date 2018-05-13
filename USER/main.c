@@ -158,7 +158,7 @@ void generate_ack(char if_succeed, u16 last_package_index)
 	char last_package_index_bytes[2];
 	unsigned char package[8];
 
-	soft_reset_SIM();
+	//soft_reset_SIM();
 
 	output_package_index++;
 
@@ -179,7 +179,7 @@ void generate_ack(char if_succeed, u16 last_package_index)
 
 	sign_message(package, 8);
 
-	UART_SendBytes(package, 10, 1);
+	UART_SendBytes(package, 8, 1);
 }
 
 void generate_wakeup_report()
@@ -219,7 +219,7 @@ void generate_id_ack(void)
 	char header[5];
 	unsigned char package[6];
 
-	soft_reset_SIM();
+	//soft_reset_SIM();
 
 	output_package_index++;
 
@@ -460,11 +460,11 @@ int main(void)
 
 				for (t = 0; t < len - 2; t++)
 				{
-					if (USART_RX_BUF[t] == 'ef')
+					if (USART_RX_BUF[t] == 0xef)
 					{
-						if (USART_RX_BUF[t + 1] == '0a')
+						if (USART_RX_BUF[t + 1] == 0x0a)
 						{
-							if (USART_RX_BUF[t + 2] == 'fe')
+							if (USART_RX_BUF[t + 2] == 0xfe)
 							{
 								start_bit = t + 3;
 							}
@@ -520,6 +520,7 @@ int main(void)
 	{
 		delay_ms(1000);
 	}
+	generate_id_ack();
 
 	USART_RX_STA = 0;
 	for (t = 0; t < 200; t++)
@@ -527,7 +528,6 @@ int main(void)
 		USART_RX_BUF[t] = 0;
 	}
 
-	generate_id_ack();
 
 	LED0(0);
 	//进入轮询，LED快速闪烁
@@ -549,11 +549,11 @@ int main(void)
 
 			for (t = 0; t < len - 2; t++)
 			{
-				if (USART_RX_BUF[t] == 'ef')
+				if (USART_RX_BUF[t] == 0xef)
 				{
-					if (USART_RX_BUF[t + 1] == '0a')
+					if (USART_RX_BUF[t + 1] == 0x0a)
 					{
-						if (USART_RX_BUF[t + 2] == 'fe')
+						if (USART_RX_BUF[t + 2] == 0xfe)
 						{
 							start_bit = t + 3;
 						}

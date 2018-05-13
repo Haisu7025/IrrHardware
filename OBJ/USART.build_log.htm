@@ -31,8 +31,14 @@ compiling main.c...
                 
 main.c(243): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
         sign_message(heartbeat, 6);
-main.c(518): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
+main.c(411): warning:  #68-D: integer conversion resulted in a change of sign
+        u16 start_bit = -1;
+main.c(475): warning:  #186-D: pointless comparison of unsigned integer with zero
+                                if (start_bit < 0)
+main.c(512): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "unsigned char *"
         sign_message(hb_content, 6);
+main.c(563): warning:  #186-D: pointless comparison of unsigned integer with zero
+                        if (start_bit < 0)
 main.c(388): warning:  #177-D: variable "ip" was declared but never referenced
         char ip[4];
 main.c(389): warning:  #177-D: variable "ip_str" was declared but never referenced
@@ -57,11 +63,11 @@ main.c(401): warning:  #177-D: variable "checksum" was declared but never refere
         char checksum;
 main.c(404): warning:  #177-D: variable "STM_ID" was declared but never referenced
         char STM_ID[12];
-main.c: 15 warnings, 0 errors
+main.c: 18 warnings, 0 errors
 linking...
-Program Size: Code=19314 RO-data=394 RW-data=216 ZI-data=1832  
+Program Size: Code=19306 RO-data=394 RW-data=216 ZI-data=1832  
 FromELF: creating hex file...
-"..\OBJ\USART.axf" - 0 Error(s), 15 Warning(s).
+"..\OBJ\USART.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   Z:\shared\project\USER\RTE
