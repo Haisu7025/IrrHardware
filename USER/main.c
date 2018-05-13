@@ -158,6 +158,8 @@ void generate_ack(char if_succeed, u16 last_package_index)
 	char last_package_index_bytes[2];
 	unsigned char package[8];
 
+	soft_reset_SIM();
+
 	output_package_index++;
 
 	if (if_succeed)
@@ -185,6 +187,8 @@ void generate_wakeup_report()
 	char header[5];
 	unsigned char package[6];
 
+	output_package_index++;
+
 	generate_header(96, header);
 
 	memcpy(package, header, 5);
@@ -199,6 +203,8 @@ void generate_reconnect_report(void)
 	char header[5];
 	unsigned char package[6];
 
+	output_package_index++;
+
 	generate_header(112, header);
 
 	memcpy(package, header, 5);
@@ -212,6 +218,10 @@ void generate_id_ack(void)
 {
 	char header[5];
 	unsigned char package[6];
+
+	soft_reset_SIM();
+
+	output_package_index++;
 
 	generate_header(80, header);
 
@@ -398,6 +408,7 @@ int main(void)
 
 	u16 tmp_check_time;
 	u16 len = 0;
+	u16 start_bit = 0;
 
 	char cycle_times = 0;
 
@@ -407,15 +418,16 @@ int main(void)
 	system_init();
 
 	//等待网络模块连接服务器
-	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
-	{
-		delay_ms(1000);
-	}
-	//等待服务器配置网络模块使其退出睡眠状态
-	delay_ms(5000);
+	//	while (!GPIO_ReadInputDataBit(GPIOC, GPIO_Pin_12))
+	//	{
+	//		delay_ms(1000);
+	//	}
+	//	//等待服务器配置网络模块使其退出睡眠状态
+	//	delay_ms(5000);
 
-	//通知服务器需要关闭睡眠
-	generate_reconnect_report();
+	//	//通知服务器需要关闭睡眠
+	//	flash_LED0(5,300);
+	//	generate_reconnect_report();
 	//================================================
 
 	//===================配置sim模块===================
@@ -429,16 +441,15 @@ int main(void)
 	UART_ClearSend(1);
 
 	UART_SendBytes("AT+ENTM", 7, 0);
-	//	delay_ms(5000);
+	//	delay_ms(5000 );
 	//================================================
 
 	//===================开机注册===================
+	LED1(0);
 	while (module_index <= 0)
 	{
-		//flash_LED0(3, 300);
-
+		flash_LED1(3, 300);
 		generate_regist();
-		LED1(0);
 		USART_RX_STA = 0;
 		i = 0;
 		while (i < 10)
@@ -520,8 +531,8 @@ int main(void)
 	{
 		USART_RX_BUF[t] = 0;
 	}
+
 	generate_id_ack();
-	//注册后直接进入待机模式
 
 	LED0(0);
 	//进入轮询，LED快速闪烁
@@ -550,9 +561,26 @@ int main(void)
 			//checksum
 			if (!check_sign(input_buffer, len))
 			{
-				USART_RX_STA = 0;
-				generate_ack(0, 0);
-				continue;
+				if (check_sign(input_buffer + 1, len - 1))
+				{
+					for (t = 0; t < len; t++)
+					{
+						input_buffer[t] = input_buffer[t + 1];
+					}
+				}
+				else if (check_sign(input_buffer + 1, len))
+				{
+					for (t = 0; t < len; t++)
+					{
+						input_buffer[t] = input_buffer[t + 1];
+					}
+				}
+				else
+				{
+					USART_RX_STA = 0;
+					generate_ack(0, 0);
+					continue;
+				}
 			}
 			//
 
