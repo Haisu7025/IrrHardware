@@ -404,11 +404,11 @@ int main(void)
 	char STM_ID[12];
 	char hb_content[6];
 
-	unsigned char i, t;
+	unsigned char i, j, t;
 
 	u16 tmp_check_time;
 	u16 len = 0;
-	u16 start_bit = 0;
+	u16 start_bit = -1;
 
 	char cycle_times = 0;
 
@@ -437,8 +437,6 @@ int main(void)
 
 	//等待服务器
 	delay_ms(5000);
-	UART_ClearSend(0);
-	UART_ClearSend(1);
 
 	UART_SendBytes("AT+ENTM", 7, 0);
 	//	delay_ms(5000 );
@@ -459,38 +457,35 @@ int main(void)
 			if (USART_RX_STA & 0x8000)
 			{
 				len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
-				for (t = 0; t < len; t++)
+
+				for (t = 0; t < len - 2; t++)
 				{
-					input_buffer[t] = USART_RX_BUF[t];
+					if (USART_RX_BUF[t] == 'ef')
+					{
+						if (USART_RX_BUF[t + 1] == '0a')
+						{
+							if (USART_RX_BUF[t + 2] == 'fe')
+							{
+								start_bit = t + 3;
+							}
+						}
+					}
+				}
+
+				if (start_bit < 0)
+				{
+					continue;
+				}
+
+				j = 0;
+				for (t = start_bit; t < len; t++)
+				{
+					input_buffer[j++] = USART_RX_BUF[t];
 				}
 				USART_RX_STA = 0;
-				//check success reply
-
-				//check success reply
-				if (input_buffer[3] == 80)
-				{
-					//if '00' is redundant at the beginning
-					len--;
-					for (t = 0; t < len; t++)
-					{
-						input_buffer[t] = input_buffer[t + 1];
-					}
-				}
-
-				if (input_buffer[1] == 80)
-				{
-					//if '00' is redundant at the beginning
-					len++;
-					for (t = len - 1; t >= 1; t++)
-					{
-						input_buffer[t] = input_buffer[t - 1];
-					}
-					input_buffer[0] = 0x00;
-				}
 
 				if (input_buffer[2] == 80)
 				{
-
 					if (!check_sign(input_buffer, 6))
 					{
 						USART_RX_STA = 0;
@@ -551,36 +546,38 @@ int main(void)
 		if (USART_RX_STA & 0x8000)
 		{
 			len = USART_RX_STA & 0x1fff; //得到此次接收到的数据长度
-			for (t = 0; t < len; t++)
+
+			for (t = 0; t < len - 2; t++)
 			{
-				input_buffer[t] = USART_RX_BUF[t];
-				USART_RX_BUF[t] = 0;
+				if (USART_RX_BUF[t] == 'ef')
+				{
+					if (USART_RX_BUF[t + 1] == '0a')
+					{
+						if (USART_RX_BUF[t + 2] == 'fe')
+						{
+							start_bit = t + 3;
+						}
+					}
+				}
+			}
+			if (start_bit < 0)
+			{
+				continue;
+			}
+
+			j = 0;
+			for (t = start_bit; t < len; t++)
+			{
+				input_buffer[j++] = USART_RX_BUF[t];
 			}
 			USART_RX_STA = 0;
 
 			//checksum
-			if (!check_sign(input_buffer, len))
+			if (!check_sign(input_buffer, len - start_bit))
 			{
-				if (check_sign(input_buffer + 1, len - 1))
-				{
-					for (t = 0; t < len; t++)
-					{
-						input_buffer[t] = input_buffer[t + 1];
-					}
-				}
-				else if (check_sign(input_buffer + 1, len))
-				{
-					for (t = 0; t < len; t++)
-					{
-						input_buffer[t] = input_buffer[t + 1];
-					}
-				}
-				else
-				{
-					USART_RX_STA = 0;
-					generate_ack(0, 0);
-					continue;
-				}
+				USART_RX_STA = 0;
+				generate_ack(0, 0);
+				continue;
 			}
 			//
 
